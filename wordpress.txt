@@ -1,3 +1,6 @@
+All commands for creating Wordpress Website using AWS EC2 Instance
+
+
 sudo apt update -y
 sudo apt install nginx -y
 sudo systemctl start nginx
