@@ -1,0 +1,32 @@
+1)https://www.interviewbit.com/blog/devops-projects/                              ---10 Projects by interviewpit
+2)https://youtu.be/8TGgYfJcVuM                                                    ---CloudWithRaj (AWS Projects)
+3)https://youtu.be/nplH3BzKHPk                                                    ---TrainWithShubham(DevOps Jenkins CICD)
+4)https://www.projectpro.io/article/real-time-devops-projects-for-practice/585    ---15 Real-Time Project for Practice
+5)https://youtu.be/5RVT3BN9Iws                                                    ---TechWithLucy
+
+
+
+
+
+5)
+1st project - Deploy a Wordpress Website on AWS
+            - https://aws.amazon.com/getting-started/hands-on/build-wordpress-website/
+            - https://youtu.be/8Uofkq718n8  _______(Youtube video on this project)
+            - same project but using Elastic Beanstalk (https://youtu.be/cMCGlYLjTo0)
+2nd project - Serverless Web Application on AWS
+            - https://aws.amazon.com/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
+            - https://youtu.be/kA2ZYD4zgEo  _______(Youtube video on this project)
+3rd project - Amazon Connect Call Center on AWS
+            - https://github.com/aws-samples/amazon-lex-connect-workshop
+_____________________________________________________________________________below projects are have their own link
+4th project - Launch a website on Amazon S3
+            - https://youtu.be/sCQwEVhCvTg 
+5th project - Face Recognition Service with AWS Rekognition
+            - https://youtu.be/oHSesteFK5c
+6th project - Run Infra as Code with Jenkins
+            - https://youtu.be/WSNc0H-wOSE (Infrastructure as Code - AWS CloudFormation, Ansible & Jenkins)
+            - https://youtu.be/2WcGvvwwHY4 (AWS Cloud Infrastructure Automation - Terraform & Jenkins)
+
+
+
+https://drive.google.com/file/d/10RM2ouGkwx-svs_R8UwQZEMFEhbZNCzu/view?pli=1  -----LinkedIn CICD project
