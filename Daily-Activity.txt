@@ -1,0 +1,4 @@
+1) On 12th March 2023 I did project of deployment 2 websites on single ec2
+   instance (mujahedh.com & nubeera.com)
+
+2) After That i did practice on my further tasks
