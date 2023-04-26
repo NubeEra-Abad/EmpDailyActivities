@@ -1,0 +1,74 @@
+mkdir /var/www/mujahedh
+    4  sudo mkdir /var/www/mujahedh
+    5  sudo mkdir -p /var/www/mujahedh
+    6  clear
+    7  sudo git clone https://gitlab.com/NubeEra/mujahedh/-/tree/main /var/www/mujahedh
+    8  sudo git clone git@gitlab.com:NubeEra/mujahedh.git /var/www/mujahedh
+    9  cd /var/www/mujahedh
+   10  git clone https://gitlab.com/NubeEra/mujahedh.git
+   11  cd ../../../
+   12  apt istall nginx
+   13  apt install nginx
+   14  nano /etc/nginx/sites-available/mujahedh
+   15  sudo ln -s /etc/nginx/sites-available/mujahedh /etc/nginx/sites-enabled/
+   16  sudo nginx -t
+   17  sudo systemctl reload nginx
+   18  nano /etc/nginx/sites-available/mujahedh
+   19  sudo ln -s /etc/nginx/sites-available/mujahedh /etc/nginx/sites-enabled/
+   20  sudo nginx -t
+   21  sudo systemctl restart nginx
+   22  cd /etc/nginx/sites-enabled/
+   23  ls
+   24  rm default
+   25  sudo systemctl restart nginx
+   26  sudo nginx -t
+   27  ls /etc/nginx
+   28  nano /etc/nginx/nginx.conf
+   29  sudo systemctl restart nginx
+   30  sudo nginx -t
+   31  sudo chown -R nginx:nginx /var/www/mujahedh/
+   32  sudo chmod -R 755 /var/www/mujahedh
+   33  sudo chown -R www-data:www-data /var/www/mujahedh/
+   34  sudo chmod -R 755 /var/www/mujahedh/
+   35  sudo systemctl restart nginx
+   36  sudo systemctl reload nginx
+   37  sudo nginx -t
+   38  ps aux | grep nginx
+   39  sudo service nginx restart
+   40  ps aux | grep nginx
+   41  sudo chown -R user:group /var/www/mujahedh/
+   42  sudo setenforce 0
+   43  sudo ufw status
+   44  sudo systemctl status nginx
+   45  cd ../.././
+   46  ..
+   47  cd ../
+   48  sudo tail -f /var/log/nginx/access.log
+   49  sudo nano /etc/nginx/sites-available/default
+   50  clear
+   51  hostname ubuntu
+   52  bash
+   53  clear
+   54  s
+   55  clear
+   56  ls
+   57  sudo apt-get install php-fpm
+   58  clear
+   59  apt update
+   60  clear
+   61  sudo apt-get install php-fpm
+   62  nano /etc/php/7.4/fpm/pool.d/www.conf
+   63  php --version
+   64  nano /etc/php/8.1/fpm/pool.d/www.conf
+   65  sudo nano /etc/nginx/sites-available/nubeera
+   66  sudo nginx -t
+   67  sudo systemctl reload nginx
+   68  sudo nano /etc/nginx/sites-available/nubeera
+   69  clear
+   70  history
+
+in nginx.conf
+include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/mujahedh;
+        include /etc/nginx/sites-enabled/nubeera;
+}
