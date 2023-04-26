@@ -1,0 +1,41 @@
+
+1. Create a new directory called "my_documents" in your home directory.
+
+2. Navigate to the "my_documents" directory.
+
+3. Create a new file called "notes.txt" using the nano text editor.
+
+4. Write some notes in the file and save it.
+
+5. List the contents of the "my_documents" directory to confirm that the "notes.txt" file was created.
+
+6. Copy the "notes.txt" file to a new file called "backup.txt" in the same directory.
+
+7. Verify that the "backup.txt" file was created by listing the contents of the directory.
+
+8. Rename the "backup.txt" file to "notes_backup.txt".
+
+9. Verify that the file was renamed correctly by listing the contents of the directory.
+
+10. Move the "notes_backup.txt" file to the parent directory of "my_documents".
+
+11. Navigate to the parent directory and confirm that the "notes_backup.txt" file is now there.
+
+12. Delete the "my_documents" directory and all of its contents.
+
+ # commands for this task:
+
+1. mkdir ~/my_documents
+2. cd ~/my_documents
+3. nano notes.txt
+4. Write your notes and then press "Ctrl+X", "Y", and then "Enter" to save and exit the file.
+5. ls
+6. cp notes.txt backup.txt
+7. ls
+8. mv backup.txt notes_backup.txt
+9. ls
+10. mv notes_backup.txt ../
+11. cd ../
+12. ls (to confirm that notes_backup.txt is in the parent directory)
+13. rm -r my_documents (Note: This command will delete the entire directory and its contents. Be careful when using the rm command.)
+
