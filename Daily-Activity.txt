@@ -2,3 +2,6 @@
    instance (mujahedh.com & nubeera.com)
 
 2) After That i did practice on my further tasks
+
+3) On 26th April I did installations of different languages with shell scripting and installation of different databases and different versions from shell scripting in Ubuntu (Linux)
+
