@@ -1,0 +1,67 @@
+
+
+#QUESTIONS#
+
+1. What is Linux and why is it popular?
+
+2. What are some differences between Linux and other operating systems?
+
+3. What are the main components of the Linux operating system?
+
+4. How does the Linux file system differ from other operating systems?
+
+5. What is a shell and how does it work in Linux?
+
+6. What are some common Linux commands you have used?
+
+7. What is the difference between a process and a thread?
+
+8. How do you monitor system resources in Linux?
+
+9. How do you manage user accounts and groups in Linux?
+
+10. What are some ways to secure a Linux system?
+
+11. How do you troubleshoot network connectivity issues in Linux?
+
+12. What is a package manager and how does it work in Linux?
+
+13. How do you configure a Linux system to act as a web server?
+
+14. What is virtualization and how is it used in Linux?
+
+15. What are some common Linux distributions and what are their differences?
+
+
+#ANSWERS#
+
+
+1. Linux is an open-source operating system that is popular for its stability, security, and flexibility.
+
+2. Linux is different from other operating systems in terms of its licensing, user interface, and file system structure.
+
+3. The main components of the Linux operating system include the kernel, shell, file system, and various utilities.
+
+4. The Linux file system is hierarchical, with a root directory and various subdirectories. It also supports symbolic links and file permissions.
+
+5. A shell is a command-line interface that allows users to interact with the operating system. In Linux, there are several different types of shells available.
+
+6. Some common Linux commands include ls, cd, mkdir, rm, and grep.
+
+7. A process is a running instance of a program, while a thread is a lightweight process that runs within a process.
+
+8. System resources can be monitored using various tools in Linux, such as top, htop, and vmstat.
+
+9. User accounts and groups can be managed using tools such as useradd, usermod, groupadd, and groupmod.
+
+10. Linux systems can be secured using tools such as firewalls, encryption, and access controls.
+
+11. Network connectivity issues can be troubleshooted using tools such as ping, traceroute, and netstat.
+
+12. A package manager is a tool used to install, update, and remove software packages in Linux. Examples include apt, yum, and pacman.
+
+13. A Linux system can be configured to act as a web server using tools such as Apache or Nginx.
+
+14. Virtualization allows multiple operating systems to run on the same physical machine. In Linux, virtualization is commonly achieved using tools such as KVM, Xen, and VirtualBox.
+
+15. Some common Linux distributions include Ubuntu, Fedora, CentOS, and Debian. These distributions differ in terms of their package management systems, release cycles, and default desktop environments.
