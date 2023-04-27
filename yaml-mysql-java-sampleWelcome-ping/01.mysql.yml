@@ -1,0 +1,17 @@
+---
+- hosts: ws
+  become: yes
+  tasks:
+    - name: Install MySQL Server
+      apt: name=mysql-server state=latest
+    
+    - name: Install MySQL Database Web GUI
+      apt:
+        name:
+        - mysql-server
+        - php5-mysql
+        state: latest
+        cache_valid_time: 3600
+        update_cache: yes
+    - name: Install Web Server(Apache2)
+      apt: name=apache2 update_cache=yes state=latest
