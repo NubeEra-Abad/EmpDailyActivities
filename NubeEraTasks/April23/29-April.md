@@ -1,10 +1,6 @@
 
 
-<<<<<<< HEAD
-# 1. Setup Tomcat Server
-=======
 # 1.Setup Tomcat Server
->>>>>>> 7b1caf1c2f1f76f97e45f101a635ba008f5ba5ea
 	- Setup a Linux EC2 Instance
 	- Install Java
 	- Download and configure Tomcat
