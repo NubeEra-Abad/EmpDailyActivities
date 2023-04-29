@@ -1,6 +1,6 @@
 
 
-#1. learn AWS
+# 1. learn AWS
 	- Security Groups (Inbound/Outbound rules)
 	- Host Web page on AWS instance
 	- Install httpd protocol
@@ -8,6 +8,6 @@
 	- Edit security group to allow http & https
 	- Test the hosting using the instance public IP
 
-#2. Work on completing college internship documents
+# 2. Work on completing college internship documents
 
 

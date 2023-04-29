@@ -1,17 +1,17 @@
 
 
-#1.Setup Tomcat Server
+# 1. Setup Tomcat Server
 	- Setup a Linux EC2 Instance
 	- Install Java
 	- Download and configure Tomcat
 	- Start Tomcat Server
 	- Access Web UI on port 8080
 
-#2. Integrate Tomcat with Jenkins
+# 2. Integrate Tomcat with Jenkins
 	- Install “Deploy to container”
 	- Configure tomcat server with Credentials
 
-#3. Integrate Docker with Jenkins
+# 3. Integrate Docker with Jenkins
 	- Setup a Linux EC2 Instance
 	- Install docker
 	- Start docker services
@@ -19,7 +19,7 @@
 	- Add Dockerhost to Jenkins “configure systems”
 	- Install “Publish Over SSH” plugin
 
-#4. Create Dockerfile
+# 4. Create Dockerfile
 	FROM centos
 	RUN yum -y install java
 	RUN mkdir /opt/tomcat/
