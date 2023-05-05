@@ -1,0 +1,56 @@
+1  cleaer
+    2  clear
+    3  sudo apt-get update
+    4  clear
+    5  nano jenkins.sh
+    6  ls
+    7  clear
+    8  sudo apt-get install -y openjdk-11-jdk
+    9  clear
+   10  java -v
+   11  java -version
+   12  clear
+   13  curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+   14  echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+   15  sudo apt-get update
+   16  sudo apt-get install -y jenkins
+   17  sudo systemctl status jenkins
+   18  sudo systemctl restart jenkins
+   19  sudo systemctl enable jenkins
+   20  cat /var/lib/jenkins/secrets/initialAdminPassword
+   21  clear
+   22  hostname jenkins-slave
+   23  bash
+   24  java -version
+   25  ls
+   26  pwd
+   27  cd
+   28  ls
+   29  cd /home
+   30  ls
+   31  /ubuntu
+   32  cd /ubuntu
+   33  ls
+   34  cd /ubuntu
+   35  cd /
+   36  ls
+   37  pwd
+   38  exit
+   39  hostname jenkins-sever
+   40  bash
+   41  ls
+   42  exit
+   43  clear
+   44  jenkins --version
+   45  jenkins home location
+   46  ls /home/user
+   47  ls /home/
+   48  hostname
+   49  bash
+   50  exit
+   51  clear
+   52  mkdir /var/lib/jenkins/.ssh
+   53  chown jenkins:jenkins /var/lib/jenkins/.ssh
+   54  echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDLH/k/wzWb/cCKgPxHRdfUZ6opr40B1H+XBX6QqzvDSp5fA73p3Xub0rd5+wyOcY8r9ji7txHNmKY5tKJW8lcS6VoE1EbExrDyuvsrVGkht3uWQYh8Axlmfih5GDbDBRc027Nfk6RCKBUXEk9Zmjg0hn+XXz1ZOI54rI1pPq89fSgFOZ9tWayMON09F+T+FpsX2d9+qiugkULEUYRs2GoRbo3ezyLYxGT03t0A8ufGhSMUBANhadvrgzjHLPCLukgigQRWpBYrUqMJSxo7emTBfXooHdRApq3wFcIzSxb3ZPOkTniM9VWX/NRTETnvTOQeUgtYgpg2+9MDKIHOZ2UTkea5PVJGSieIuihpijTlFWxUGer69y8wT30Uh3exJiw9NOCcwzvbO6Hgl3fsLm3c+2xwL5Jzr0dTRBca/WtEPLQ1je6ab8kZrEGkROKQVmpT2yy3jj+GrY5RQe096NQKfHjK02J+r2VCbJn/KikspireD2i8nGjH1FWT9ZDqCI8= root@slave" > /var/lib/jenkins/.ssh/known_hosts
+   55  cat /var/lib/jenkins/.ssh/known_hosts
+   56  ssh-keyscan -H jenkins-slave.example.com >>/var/lib/jenkins/.ssh/known_hostsh
