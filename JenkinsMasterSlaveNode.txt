@@ -1,0 +1,49 @@
+On Master:
+apk add openjdk11 
+
+docker pull jenkins/jenkins:lts
+
+docker run -u 0 -d -p 8082:8080 -p 50002:50000 -v //C/Users/Lars/jenkins:/var/jenkins_home jenkins/jenkins:lts
+
+docker exec -it cont-name /bin/bash
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Then Make Node In Jenkins From Manage jenkins
+
+
+On Slave: 
+apk add openjdk11
+
+go in the folder which you opted while making node  remote dir
+
+/opt/
+
+run agent.jar file command:
+On Master:
+apk add openjdk11 
+
+docker pull jenkins/jenkins:lts
+
+docker run -u 0 -d -p 8082:8080 -p 50002:50000 -v //C/Users/Lars/jenkins:/var/jenkins_home jenkins/jenkins:lts
+
+docker exec -it cont-name /bin/bash
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Then Make Node In Jenkins From Manage jenkins
+
+
+
+
+
+On Slave: 
+apk add openjdk11
+
+go in the folder which you opted while making node  remote dir
+
+/opt/
+
+run agent.jar file command:
+java -jar agent.jar -jnlpUrl http://ip172-19-0-49-chbc3s81k7jg00fbromg-8082.direct.labs.play-with-docker.com/manage/computer/java%2Dnode/jenkins-agent.jnlp -secret 6240c6417e7081faa4c4114922970558acddf46613021a560cf6cd7782d67be6 -workDir "/opt/build"
+
