@@ -1,0 +1,59 @@
+----------------------------------------------------------------
+Docker-Compose File
+----------------------------------------------------------------
+version: '3'
+
+services:
+  nfs-server:
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+    volumes:
+      - nfs_data:/data/nfs
+    ports:
+      - "111:111/udp"
+      - "2049:2049/tcp"
+    restart: always
+
+  nfs-client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    volumes:
+      - nfs_data:/data/nfs
+    depends_on:
+      - nfs-server
+    restart: always
+
+volumes:
+  nfs_data:
+    driver: local
+----------------------------------------------------------------
+
+Dockerfile-server
+----------------------------------------------------------------```
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nfs-kernel-server rpcbind nfs-common
+COPY exports /etc/exports
+CMD ["/usr/sbin/rpcbind", "-w"]
+CMD ["/etc/init.d/nfs-common", "start"]
+CMD ["sh", "-c", "echo '/data/nfs *(rw,sync,no_subtree_check)' >> /etc/exports && /etc/init.d/nfs-kernel-server start && tail -f /dev/null"]
+
+----------------------------------------------------------------
+Dockerfile-client
+----------------------------------------------------------------
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nfs-common rpcbind
+CMD ["/usr/sbin/rpcbind", "-w"]
+CMD ["/etc/init.d/nfs-common", "start"]
+CMD ["mount", "-t", "nfs", "nfs-server:/data/nfs", "/mnt"]
+
+----------------------------------------------------------------
+Make a file called exports in the directory where docker file and docker compose files are placed
+
+/data/nfs *(rw,sync,no_subtree_check)
+----------------------------------------------------------------
+Run With This Commands
+
+docker-compose up
+----------------------------------------------------------------
