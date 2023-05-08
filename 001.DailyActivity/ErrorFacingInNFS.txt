@@ -1,0 +1,7 @@
+ ⠿ Container nfs-client-1  Created                                                                                                0.0s
+Attaching to nfs-client-1, nfs-server-1
+nfs-server-1  |  * Not starting NFS kernel daemon: no support in current kernel.
+nfs-client-1  | mount.nfs: rpc.statd is not running but is required for remote locking.
+nfs-client-1  | mount.nfs: Either use '-o nolock' to keep locks local, or start statd.
+nfs-client-1  | mount.nfs: Operation not permitted
+nfs-client-1 exited with code 32
