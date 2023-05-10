@@ -14,7 +14,7 @@ Run the following commands to make nfs containers
 
 .. code::
 
-    docker run -d --name nfs-server \
+docker run -d --name nfs-server \
   --net nfs-net \
   -v /path/to/nfs/data:/var/nfs \
   --privileged \
@@ -28,7 +28,7 @@ Run the following commands to make nfs containers
 
 .. code::
 
-    docker run -it --name nfs-client \
+docker run -it --name nfs-client \
   --net nfs-net \
   --mount type=volume,src=nfs-data,dst=/mnt/nfs \
   --privileged \
@@ -57,4 +57,4 @@ This will create a file named `testfile.txt` in the shared directory, which can 
 **************************
  Error While Doing This:
 **************************
-The Error I am facing While Doing this all is that The NFS-Server container is not starting
+The Error I am facing While Doing this all is that The NFS-Server container is not starting to check the connection between the containers.
