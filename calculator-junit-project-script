@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone repository') {
+            steps {
+                git credentialsId: 'git', url: 'https://github.com/tahers755/calculator-unit-test-example-java.git'
+            }
+        }
+        stage('Build and test') {
+            steps {
+                sh 'mvn clean install'
+                junit 'target/surefire-reports/*.xml'
+            }
+        }
+    }
+
+    post {
+        success {
+            emailext body: '${FILE,path="target/site/surefire-report.html"}', 
+            subject: 'JUnit Test Results - Success', to: 'vishalkashu.91@gmail.com', 
+            attachmentsPattern: 'target/surefire-reports/*.xml'
+        }
+        failure {
+            emailext body: 'Maven build failed! Please check the logs.', 
+            subject: 'Maven Build Failed', to: 'vishalkashu.91@gmail.com'
+        }
+    }
+}
