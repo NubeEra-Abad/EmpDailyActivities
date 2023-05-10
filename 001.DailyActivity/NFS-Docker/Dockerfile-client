@@ -1,0 +1,5 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nfs-common rpcbind
+CMD ["/usr/sbin/rpcbind", "-w"]
+CMD ["/etc/init.d/nfs-common", "start"]
+CMD ["mount", "-t", "nfs", "nfs-server:/data/nfs", "/mnt"]

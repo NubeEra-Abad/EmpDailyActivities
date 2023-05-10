@@ -1,0 +1,4 @@
+To Run This NFS Task Run This Command:
+docker-compose up 
+or
+docker-compose up -d 

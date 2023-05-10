@@ -1,0 +1,1 @@
+/data/nfs *(rw,sync,no_subtree_check)

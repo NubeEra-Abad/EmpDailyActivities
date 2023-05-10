@@ -1,0 +1,6 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nfs-kernel-server rpcbind nfs-common
+COPY exports /etc/exports
+CMD ["/usr/sbin/rpcbind", "-w"]
+CMD ["/etc/init.d/nfs-common", "start"]
+CMD ["sh", "-c", "echo '/data/nfs *(rw,sync,no_subtree_check)' >> /etc/exports && /etc/init.d/nfs-kernel-server start && tail -f /dev/null"]
