@@ -14,11 +14,12 @@ Run the following commands to make nfs containers
 
 .. code::
     docker run -d --name nfs-server \
-      --net nfs-net \
-      -v /path/to/nfs/data:/var/nfs \
-      --privileged \
-      -e SHARED_DIRECTORY=/var/nfs \
-      itsthenetwork/nfs-server-alpine:latest
+  --net nfs-net \
+  -v /path/to/nfs/data:/var/nfs \
+  --privileged \
+  -e SHARED_DIRECTORY=/var/nfs \
+  itsthenetwork/nfs-server-alpine:latest
+
 
 
 *********************************
@@ -27,12 +28,13 @@ Run the following commands to make nfs containers
 
 .. code:: 
     docker run -it --name nfs-client \
-      --net nfs-net \
-      --mount type=volume,src=nfs-data,dst=/mnt/nfs \
-      --privileged \
-      -e NFS_SERVER=nfs-server \
-      -e NFS_DIRECTORY=/var/nfs \
-      alpine:latest /bin/sh
+  --net nfs-net \
+  --mount type=volume,src=nfs-data,dst=/mnt/nfs \
+  --privileged \
+  -e NFS_SERVER=nfs-server \
+  -e NFS_DIRECTORY=/var/nfs \
+  alpine:latest /bin/sh
+
 
 
 This will take you into client container
