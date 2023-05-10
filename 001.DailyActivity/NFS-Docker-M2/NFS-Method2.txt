@@ -1,0 +1,29 @@
+Create a Docker network to connect the two containers:
+
+docker network create nfs-net
+
+
+Run the NFS server container:
+
+docker run -d --name nfs-server \
+  --net nfs-net \
+  -v /path/to/nfs/data:/var/nfs \
+  --privileged \
+  -e SHARED_DIRECTORY=/var/nfs \
+  itsthenetwork/nfs-server-alpine:latest
+
+
+Run the NFS client container:
+
+docker run -it --name nfs-client \
+  --net nfs-net \
+  --mount type=volume,src=nfs-data,dst=/mnt/nfs \
+  --privileged \
+  -e NFS_SERVER=nfs-server \
+  -e NFS_DIRECTORY=/var/nfs \
+  alpine:latest /bin/sh
+
+
+
+cd /mnt/nfs
+touch myfile.txt
