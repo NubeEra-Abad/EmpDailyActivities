@@ -1,0 +1,36 @@
+These Are the logs of NFS-Server Container
+Command: docker logs 56e9a4aa96c8(container id)
+Writing SHARED_DIRECTORY to /etc/exports file
+The PERMITTED environment variable is unset or null, defaulting to '*'.
+This means any client can mount.
+The READ_ONLY environment variable is unset or null, defaulting to 'rw'.
+Clients have read/write access.
+The SYNC environment variable is unset or null, defaulting to 'async' mode.
+Writes will not be immediately written to disk.
+Displaying /etc/exports contents:
+/var/nfs *(rw,fsid=0,async,no_subtree_check,no_auth_nlm,insecure,no_root_squash)
+
+Starting rpcbind...
+Displaying rpcbind status...
+   program version netid     address                service    owner
+    100000    4    tcp6      ::.0.111               -          superuser
+    100000    3    tcp6      ::.0.111               -          superuser
+    100000    4    udp6      ::.0.111               -          superuser
+    100000    3    udp6      ::.0.111               -          superuser
+    100000    4    tcp       0.0.0.0.0.111          -          superuser
+    100000    3    tcp       0.0.0.0.0.111          -          superuser
+    100000    2    tcp       0.0.0.0.0.111          -          superuser
+    100000    4    udp       0.0.0.0.0.111          -          superuser
+    100000    3    udp       0.0.0.0.0.111          -          superuser
+    100000    2    udp       0.0.0.0.0.111          -          superuser
+    100000    4    local     /var/run/rpcbind.sock  -          superuser
+    100000    3    local     /var/run/rpcbind.sock  -          superuser
+Starting NFS in the background...
+rpc.nfsd: knfsd is currently down
+rpc.nfsd: Writing version string to kernel: -2 -3 +4 +4.1 +4.2
+rpc.nfsd: Created AF_INET TCP socket.
+rpc.nfsd: Created AF_INET6 TCP socket.
+Exporting File System...
+exporting *:/var/nfs
+exportfs: /var/nfs does not support NFS export
+Export validation failed, exiting...
