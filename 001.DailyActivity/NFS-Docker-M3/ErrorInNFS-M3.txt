@@ -1,0 +1,5 @@
+COMMAND:
+docker run -d --name nfs-server --privileged -v /nfsshare:/exports -v /root/NFS-exports/exports:/etc/exports --net nfs-network my-nfs-server
+
+ERROR:
+docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "/usr/sbin/nfsd": stat /usr/sbin/nfsd: no such file or directory: unknown.

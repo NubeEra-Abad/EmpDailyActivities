@@ -1,0 +1,38 @@
+1) docker network create nfs-network
+
+2) mkdir NFS && cd NFS 
+
+3) nano Dockerfile
+# Put This In DockerFile
+
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nfs-kernel-server
+COPY exports /etc/exports
+CMD ["/usr/sbin/rpcbind", "-f", "-w", "-s", "--no-udp"]
+CMD ["/usr/sbin/nfsd", "-F", "-a", "0.0.0.0"]
+
+
+#Build The Image
+4) docker build -t my-nfs-server .
+
+#Run The Container
+5) docker run -d --name nfs-server --privileged -v /home/ubuntu/nfsshare:/exports -v /home/ubuntu/NFS/exports:/etc/exports --net nfs-network my-nfs-server
+
+#Facing Error In step 5.
+
+#Next Steps after success of Step 5
+#Make Dockerfile for Client Container
+6) nano Dockerfile
+
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nfs-common
+CMD ["/bin/bash"]
+
+7) docker build -t my-nfs-client .
+
+8) docker run -it --name nfs-client --net nfs-network my-nfs-client /bin/bash
+
+9) mount -t nfs nfs-server:/exports /mnt
+
+
+
