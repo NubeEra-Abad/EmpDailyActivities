@@ -1,0 +1,57 @@
+1  ping 172.17.0.2
+    2  apk update
+    3  apk add nfs-common
+    4  apk add nfs-utils
+    5  mkdir -p /data/nfs-client
+    6  mount
+    7  mount 172.17.0.2:/data/nfs /data/nfs-client
+    8  apk add openrc
+    9  mount 172.17.0.2:/data/nfs /data/nfs-client
+   10  rc-service nfs status
+   11  touch /run/openrc/softlevel
+   12  mkdir /run/openrc/
+   13  touch /run/openrc/softlevel
+   14  rc-service nfs status
+   15  rc-service nfs start
+   16  rc-service nfs status
+   17  rc-service nfs status
+   18  rc-service nfs status
+   19  rc-service nfs start
+   20  rpcinfo -p 172.17.0.2
+   21  rpcinfo -p 172.17.0.2
+   22  rc-service nfs status
+   23  rc-service nfs start
+   24  rc-service nfs status
+   25  rc-service nfs status
+   26  update-rc nfs
+   27  ls /etc/rc.conf
+   28  ls /etc/rc.conf -ltra
+   29  cat /etc/rc.conf -ltra
+   30  cat /etc/rc.conf
+   31  rc-update add rsyslog default
+   32  rc-update add nfs default
+   33  rc-service nfs status
+   34  rc-service nfs start
+   35  rc-update
+   36  rc-status -a
+   37  apk add nfs-utils
+   38  rc-update add nfs
+   39  rc-status
+   40  rc-update add nfs runlevel
+   41  rc-service nfs start
+   42  rc-service nfs status
+   43  rc-service nfs status
+   44  history
+   45  rc-service nfs status
+   46  history
+   47  mount 172.17.0.2:/data/nfs /data/nfs-client
+   48  docker login
+   49  docker images
+   50  docker tag jrei/systemd-ubuntu:18.04 mujahed/nubeera-nfs-server
+   51  docker push mujahed/nubeera-nfs-server:latest 
+   52  docker ps -a
+   53  docker commit systemd_example_container nubeera-nfs-server
+   54  docker images
+   55  docker tag nubeera-nfs-server:latest mujahed/nubeera-nfs-server-v2
+   56  docker push mujahed/nubeera-nfs-server-v2:latest 
+   57  history
