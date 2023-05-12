@@ -1,0 +1,74 @@
+1  systemctl
+    2  apt update
+    3  apt install nfs-kernel-server
+    4  systemctl status nfs-kernel-server
+    5  systemctl start nfs-kernel-server
+    6  systemctl status nfs-kernel-server
+    7  systemctl status rpcbind.service
+    8  systemctl status nfs-kernel-server
+    9  cat /etc/exports
+   10  cat >> /etc/exports 
+   11  mkdir -p /data/nfs
+   12  ls /data/nfs/
+   13  cat /etc/exports 
+   14  systemctl status nfs-kernel-server
+   15  systemctl status rpcbind
+   16  history
+   17  ls /data/nfs/
+   18  ifconfig
+   19  apt install net-tools
+   20  ifconfig
+   21  ls /data/nfs
+   22  ufw --version
+   23  apt install ufw
+   24  ufw allow from 192.168.0.13 to any port nfs
+   25  ufw disable
+   26  ufw status
+   27  ufw allow from 192.168.0.13 to any port nfs
+   28  ping 192.168.0.13
+   29  apt install net-tools
+   30  ping 192.168.0.13
+   31  apt install iputils-ping
+   32  ping 192.168.0.13
+   33* ufw allow from 192.168.0.0/16 to any port nfs
+   34  sudo apt update
+   35  apt install iptables 
+   36  ls /usr/sbin/ip6tables
+   37  lsmod | grep ip6table
+   38  apt install kmod
+   39  lsmod | grep ip6table
+   40  modprobe ip6table_filter
+   41  modprobe
+   42  modprobe -h
+   43  service ip6tables status
+   44  systemctl status ip6tables
+   45  apt update
+   46  apt-get install ip6tables
+   47  ip6tables
+   48  ip6tables -h
+   49  ip6tables
+   50  modprobe ip6table_filter
+   51  ip6tables --version
+   52  apt-cache search ip6tables
+   53  apt-get install iptables-persistent
+   54  ls /lib/modules/$(uname -r)/kernel/net/ipv4/netfilter/ip_tables.ko 
+   55  ls /lib/modprobe.d/
+   56  insmod
+   57  cat /lib/modprobe.d/systemd.conf 
+   58  apt-get install --reinstall linux-image-$(uname -r)
+   59  apt-cache search linux-image
+   60  apt update
+   61  apt upgrade
+   62  apt-get install linux-generic
+   63  apt-get install --reinstall linux-image-$(uname -r)
+   64  apt-get install linux-image-4.4.0-210-generic
+   65  apt-get install build-essential linux-headers-$(uname -r)
+   66  wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$(uname -r | cut -d'-' -f1).tar.xz
+   67  apt install wget
+   68  uname -r
+   69  cat /etc/os-release 
+   70  ls
+   71  cat ~/.bash_history
+   72  echo $HISTFILE
+   73  cat /root/.bash_history
+   74  history > nfs-server-history.txt
