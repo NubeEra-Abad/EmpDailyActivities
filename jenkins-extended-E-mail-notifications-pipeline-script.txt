@@ -1,0 +1,39 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Clone Git repository') {
+         steps {
+            git credentialsId: 'git',
+                url: 'https://github.com/tahers755/calculator-unit-test-example-java.git/'
+         }
+      }
+
+      stage('Maven Build') {
+         steps {
+            sh 'mvn clean package'
+         }
+      }
+   }
+
+   post {
+      success {
+         emailext body: 'Your build has succeeded.',
+                  subject: 'Build Notification - Success',
+                  to: 'shaikhtaher755@gmail.com',
+                  mimeType: 'text/html',
+                  attachLog: true,
+                  attachmentsPattern: '**/*.log'
+      }
+
+      failure {
+         emailext body: 'Your build has failed. Please check the logs for more details.',
+                  subject: 'Build Notification - Failure',
+                  to: 'shaikhtaher755@gmail.com',
+                  mimeType: 'text/html',
+                  attachLog: true,
+                  attachmentsPattern: '**/*.log'
+      }
+   }
+}
+
