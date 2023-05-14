@@ -1,0 +1,32 @@
+  rc-service nfs status
+  rc-service nfs start
+  update-rc nfs
+  rc-update add rsyslog default
+  rc-update add nfs default
+  rc-service nfs status
+  rc-service nfs start
+  rc-update
+  rc-service nfs start
+  rc-service nfs status
+  rc-status -a
+  apk add nfs-utils
+  rc-update add nfs
+  rc-status
+  rc-update add nfs runlevel
+  rc-service nfs start
+  rc-service nfs status
+  rc-service nfs status
+  mount 172.17.0.2:/data/nfs /data/nfs-client
+  mount 172.17.0.2:/data/nfs /data/nfs-client
+  mount -o rw,no_root_squash 172.17.0.2:/data/nfs /data/nfs-client
+  mount 172.17.0.2:/data/nfs /data/nfs-client
+  mount -o rw,all_squash 172.17.0.2:/data/nfs /data/nfs-client
+  mount -o rw,all_squash 172.17.0.2:/data/nfs /data/nfs-client
+  showmount -e 172.17.0.2
+  service rpcbind status
+  showmount -e 172.17.0.2
+  mount 172.17.0.2:/data/nfs /data/nfs-client
+  mount 172.17.0.2:/data/nfs /data/nfs-client
+  mount 172.17.0.2:/data/nfs /data/nfs-client
+  df -h
+  mount 172.17.0.2:/data/nfs /data/nfs-client

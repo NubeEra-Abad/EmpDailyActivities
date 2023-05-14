@@ -1,0 +1,5 @@
+mount 172.17.0.2:/data/nfs /data/nfs-client
+mount.nfs: access denied by server while mounting 172.17.0.2:/data/nfs
+
+
+facing this error after allowing from server also

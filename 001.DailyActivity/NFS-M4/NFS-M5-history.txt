@@ -1,0 +1,94 @@
+  sudo su -
+  clear
+  apt update
+  clear
+  apt install sudo
+  clear
+  sudo apt install systemctl
+  apt install nfs-kernel-server
+  systemctl status nfs-kernel-server
+  systemctl start nfs-kernel-server
+  service  nfs-kernel-server status
+  service  nfs-kernel-server start
+  clear
+  systemctl status rpcbind.service
+  mkdir /data/nfs
+  mkdir -p /data/nfs
+  clear
+  ls /etc/exports 
+  nano /etc/exports 
+  apt install nano 
+  clear
+  nano /etc/exports 
+  clear
+  cat /etc/exports 
+  clear
+  service rpcbind status
+  service rpcbind staart
+  service rpcbind start
+  chown -R nobody:nobody /data/nfs/
+  chown  nobody:nobody /data/nfs/
+  chmod 777  /data/nfs/
+  clear
+  systemctl status nfs-kernel-server
+  systemctl start nfs-kernel-server
+  systemctl status nfs-kernel-server
+  systemctl status rpcbind
+  systemctl startrpcbind
+  systemctl start rpcbind
+  systemctl startrpcbind
+  systemctl status rpcbind
+  apt install openrc
+  cat /usr/lib/systemd/system/rpcbind.service 
+  systemctl status rpcbind
+  sudo rm /lib/systemd/system/rpcbind.service
+  sudo aptitude reinstall rpcbind
+  systemctl status rpcbind
+  apt install rpcbind
+  systemctl status rpcbind
+  systemctl start rpcbind
+  systemctl status rpcbind
+  ifconfig
+  apt install net-tools
+  ifconfig
+  ufw --version
+  apt install ufw
+  ufw allow from 192.168.0.13 to any port nfs
+  ufw status
+  sudo ufw enable
+  ufw app list
+  ip6tables-restore -h
+  ping 192.168.0.13
+  apt install iputils-ping
+  ping 192.168.0.13
+  ufw allow from 192.168.0.0/16 to any port nfs
+  ufw app list
+  iptables -L
+  sudo apt update
+  apt install iptables 
+  ls /usr/sbin/ip6tables
+  lsmod | grep ip6table
+  apt install kmod
+  lsmod | grep ip6table
+  modprobe ip6table_filter
+  modprobe
+  service ip6tables status
+  systemctl status ip6tables
+  apt-get install ip6tables
+  ip6tables
+  modprobe ip6table_filter
+  ip6tables --version
+  ufw allow from 172.17.0.1 to any port nfs
+  ufw allow from 172.18.0.64 to any port nfs
+  systemctl status rpcbind
+  systemctl status nfs-kernel-server
+  ufw allow from 172.17.0.1 to any port nfs
+  ip6_tables -L
+  iptables -L
+  ufw app list
+  modprobe -v ip_tables
+  modprobe -v ip6_tables
+  sudo ufw disable
+  nano /etc/exports 
+  showmount -e 172.17.0.2
+  nano /etc/exports
