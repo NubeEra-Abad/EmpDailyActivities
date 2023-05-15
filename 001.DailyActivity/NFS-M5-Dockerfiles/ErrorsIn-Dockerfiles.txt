@@ -1,0 +1,29 @@
+Error In DockerFile-one: 
+Error occurred at line: 1
+Try `iptables-restore -h' or 'iptables-restore --help' for more information.
+sysctl: setting key "net.ipv4.conf.all.accept_redirects", ignoring: Read-only file system
+sysctl: setting key "net.ipv4.conf.default.accept_redirects", ignoring: Read-only file system
+sysctl: setting key "net.ipv6.conf.all.accept_redirects", ignoring: Read-only file system
+sysctl: setting key "net.ipv6.conf.default.accept_redirects", ignoring: Read-only file system
+sysctl: setting key "net.ipv4.icmp_echo_ignore_broadcasts", ignoring: Read-only file system
+sysctl: setting key "net.ipv4.icmp_ignore_bogus_error_responses", ignoring: Read-only file system
+sysctl: setting key "net.ipv4.icmp_echo_ignore_all", ignoring: Read-only file system
+sysctl: setting key "net.ipv4.conf.all.log_martians", ignoring: Read-only file system
+sysctl: setting key "net.ipv4.conf.default.log_martians", ignoring: Read-only file system
+
+Problem loading ipv6 (skipping)
+Problem running '/etc/ufw/before.rules'
+Problem running '/etc/ufw/after.rules'
+Problem running '/etc/ufw/user.rules'
+
+The command '/bin/sh -c ufw enable &&     ufw allow from 192.168.0.0/16 to any port nfs' returned a non-zero code: 1
+
+
+
+
+
+Error In Dockerfile-two :
+
+ERROR: initcaps
+[Errno 2] ip6tables v1.8.4 (legacy): can't initialize ip6tables table `filter': Table does not exist (do you need to insmod?)
+Perhaps ip6tables or your kernel needs to be upgraded.

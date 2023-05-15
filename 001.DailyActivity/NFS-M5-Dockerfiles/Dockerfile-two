@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    apt-get install -y nfs-kernel-server && \
+    apt-get install -y nano && \
+    apt-get install -y rpcbind && \
+    apt-get install -y ufw
+
+# Configure NFS exports
+RUN mkdir -p /data/nfs && \
+    echo "/data/nfs *(rw,sync,no_subtree_check,no_root_squash)" >> /etc/exports
+
+# Expose NFS ports
+EXPOSE 111/udp 2049/tcp
+
+# Start services
+CMD echo 'y' | ufw enable && \
+    service rpcbind start && \
+    service nfs-kernel-server start && \
+    bash
