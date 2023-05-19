@@ -1,0 +1,68 @@
+# Install and configure alert manager
+
+1) go to prometheus official website
+2) select option alert manager
+3) copy link for download alert manager 
+
+$ wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
+
+$ sudo tar -xvf alertmanager-0.0.1
+
+$ cd alertmanager-0.0.1
+
+$ sudo cp -r . /usr/local/bin/alertmanager
+
+$ sudo nano /etc/systemd/system/alertmanager.service
+
+[Unit]
+Description=Prometheus Alert Manager
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/alertmanager/alertmanager --config.file=/usr/local/bin/alertmanager/alertmanager.yml
+
+[Install]
+WantedBy=multi-user.target
+
+
+$ cd /usr/local/bin/alertmanager
+
+
+
+$ sudo nano alertmanager.yml
+
+global:
+  resolve_timeout: 5m
+
+route:
+    group_by: [Alertname]
+    group_interval: 30s
+    repeat_interval: 30s
+    # Send all notifications to me.
+    receiver: email-me
+receivers:
+- name: email-me
+  email_configs:
+  - send_resolved: true
+    to: vishalbhagde8412@gmail.com
+    from: vishalbhagde8412@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username: "vishalbhagde8412@gmail.com"
+    auth_identity: "vishalbhagde8412@gmail.com"
+    auth_password: "vi@751730"
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
+
+
+$ /usr/local/bin/alertmanager/amtool check-config /usr/local/bin/alertmanager/alertmanager/yml
+
+$ sudo service alertmanager start
+
+$ sudo service alertmanager status
+
+check http://3.111.198.162:9093
