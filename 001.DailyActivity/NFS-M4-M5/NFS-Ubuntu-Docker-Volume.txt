@@ -1,0 +1,77 @@
+-------------------------------------------------------------------------------------
+NFS-SERVER SETUP
+-------------------------------------------------------------------------------------
+sudo apt update
+
+sudo apt install nfs-kernel-server
+
+sudo mkdir -p /mnt/nfsdir
+
+sudo chown nobody:nogroup /mnt/nfsdir
+
+sudo chmod 777 /mnt/nfsdir
+
+sudo vi /etc/exports
+
+#Add this lines in /etc/exports
+/mnt/nfsdir 35.154.253.111(rw,sync,no_subtree_check)
+
+sudo exportfs -a
+
+sudo systemctl restart nfs-kernel-server
+
+sudo ufw allow from 35.154.253.111 to any port nfs
+
+sudo ufw status
+
+sudo ufw enable
+----------------------------------------------------------------------------
+
+NFS-CLIENT SETUP
+
+
+sudo apt update
+
+sudo apt install nfs-common
+
+sudo mkdir -p /mnt/nfsdir_client
+
+sudo mount 35.154.43.210:/mnt/nfsdir /mnt/nfsdir_client
+
+------------------------------------------------------------------------------------
+
+NFS-DOCKER-VOLUME SETUP
+
+docker volume create --driver local --opt type=nfs --opt o=addr=35.154.43.210,rw --opt device=:/mnt/nfsdir nfs-volume
+
+docker volume inspect nfs-volume
+
+docker run -d --name nfs-debian -v my-nfs-volume:/mnt/nfsdir debian
+------------------------------------------------------------------------------------
+
+While Running The Above Command I Am Facing The Connection Timeout ERROR And My NFS-Server Also Stops Working And Giving Network ERROR...
+
+------------------------------------------------------------------------------------
+
+History Of NFS-Client:
+
+ apt update
+ sudo apt update
+ sudo apt install nfs-common
+ sudo mkdir -p /mnt/nfsdir_client
+ sudo mount 35.154.43.210:/mnt/nfsdir /mnt/nfsdir_client
+ cd /mnt/nfsdir_client/
+ ls
+ nano testfile.txt
+ ls
+ cat file.txt
+ cat testfile.txt
+ sudo apt install docker -y && apt install docker.io -y
+ docker --version
+ docker images
+ docker ps -a
+ docker volume create --driver local --opt type=nfs --opt o=addr=35.154.43.210,rw --opt device=:/mnt/nfsdir nfs-volume
+ docker volume ls
+ docker inspect nfs-volume
+ docker run -d --name nfs-debian -v nfs-volume:/mnt debian
+ showmount -e 35.154.43.210
