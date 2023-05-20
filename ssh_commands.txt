@@ -1,0 +1,36 @@
+# HOW TO CONNECT CLINT SYSTEM WITH SSH IN DOCKER CONTENER BY UBUNTU? 
+	
+
+sudo apt docker pull ubuntu
+
+sudo docker run -it ubuntu
+
+# IF THERE IS HOME USER THEN PUT [sudo] BEFORE ANY COMMAND OTHERWISE THERE ARE 
+# ROOT USER THEN U WANT TO START WITH [apt].
+
+apt update
+
+apt install net-tools
+
+apt install systemctl
+
+apt install openssh-server -y
+
+service ssh status
+
+service ssh start
+
+# THIS COMMAND GENERATE [id_rsa and id.rsa.pub] KEYS.
+ssh-keygen
+
+# TO FIND THIS KYES YOU SHOULD WANT TO PUT THIS PATH IN CLINT SYSTEM.
+cd /root/.ssh
+
+# MAKE SURE YOU WANT TO COPY CLINT CONTENT [id.irs.pub] AND MAKE [authorized_key] FILE AND PASTE IT. 
+nano authorized_keys 
+
+# WRITE IN CLINT SYSTEM FOR IP ADDRESS
+ifconfig 
+
+# IN YOUR SERVER SYSTEM PUT YOUR CLINT IP ADDRESS LIKE:
+ssh root@172.17.0.2
