@@ -1,0 +1,2 @@
+/var/nfs *(rw,sync,no_subtree_check)
+

@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nfs-server:
+    build:
+      context: ./nfs-server
+    volumes:
+      - nfs_data:/var/nfs
+    ports:
+      - "2049:2049"
+    restart: always
+
+  nfs-client:
+    build:
+      context: ./nfs-client
+    volumes:
+      - nfs_data:/mnt/nfs
+    depends_on:
+      - nfs-server
+    command: sh -c "mount -t nfs nfs-server:/var/nfs /mnt/nfs && tail -f /dev/null"
+
+volumes:
+  nfs_data:
+    driver: local
+
+networks:
+  default:
+    external:
+      name: nfs-net

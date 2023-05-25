@@ -1,0 +1,10 @@
+$ docker network create nfs-net
+
+$ docker-compose up --build -d
+
+$ docker ps
+
+$ docker exec -it nfs-client sh
+
+$ cd /mnt/nfs
+
