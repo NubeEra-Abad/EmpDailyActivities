@@ -1,0 +1,28 @@
+sudo apt update 
+sudo apt install openjdk-8-jdk -y
+sudo apt-cache search tomcat
+sudo apt install tomcat9 tomcat9-admin -y
+ss -ltn
+sudo ufw allow from any to any port 8080 proto tcp
+sudo systemctl status tomcat9.service
+sudo systemctl restart tomcat9.service
+sudo apt install maven -y
+sudo apt install git -y
+git clone https://github.com/vaadin/addressbook.git
+cd addressbook/
+mvn package
+cd target/
+cd /var/lib/tomcat9/webapps/
+cd /home/ubuntu/
+cd addressbook/target/
+sudo cp addressbook-2.0.war /var/lib/tomcat9/webapps/
+sudo vi /etc/tomcat9/tomcat-users.xml
+sudo systemctl restart tomcat9.service 
+
+Note: Add this Script on sudo vi /etc/tomcat9/tomcat-users.xml
+
+<role rolename="manager-gui"/>
+<role rolename="admin-gui"/>
+<user username="admin" password="123" roles="manager-gui,admin-gui"/>
+
+http://Ip-Address:8080/addressbook-2.0/
