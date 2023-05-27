@@ -1,0 +1,5 @@
+New NFS-server
+172.17.0.2
+
+client
+172.17.0.3

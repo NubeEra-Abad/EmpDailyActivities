@@ -1,0 +1,27 @@
+    1  clear
+    2  mkdir wordpress
+    3  cd wordpress/
+    4  mkdir nginx-conf
+    5  nano nginx-conf/nginx.conf
+    6  apk add nano
+    7  clear
+    8  nano nginx-conf/nginx.conf
+    9  nano .env
+   10  git init
+   11  clear
+   12  nano .gitignore
+   13  nano .dockerignore
+   14  ls
+   15  ls -a
+   16  ssh ip172-18-0-82-chd5i9qe69v000a2n7kg@direct.labs.play-with-docker.com
+   17  nano .dockerignore
+   18  nano docker-compose.yml
+   19  ls
+   20  nano docker-compose.yml
+   21  nano docker-compose.yml
+   22  docker-compose up -d
+   23  docker-compose ps
+   24  docker-compose exec webserver ls -la /etc/letsencrypt/live
+   25  docker-compose logs service_name
+   26  docker-compose logs webserver
+   27  docker-compose exec webserver ls -la /etc/letsencrypt/live

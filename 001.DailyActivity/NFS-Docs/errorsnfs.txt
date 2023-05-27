@@ -1,0 +1,114 @@
+docker run --privileged -it ubuntu:18.04 bash
+sudo iptables -A INPUT -p tcp -s 192.168.0.13 --dport nfs -j ACCEPT
+
+while running systemctl
+Failed to connect to bus: No such file or directory
+
+
+
+1  clear
+    2  sudo su -
+    3  clear
+    4  apt update
+    5  clear
+    6  apt install sudo
+    7  clear
+    8  sudo apt install systemctl
+    9  clear
+   10  apt install nfs-kernel-server
+   11  systemctl status nfs-kernel-server
+   12  systemctl start nfs-kernel-server
+   13  service  nfs-kernel-server status
+   14  service  nfs-kernel-server start
+   15  clear
+   16  systemctl status rpcbind.service
+   17  mkdir /data/nfs
+   18  mkdir -p /data/nfs
+   19  clear
+   20  ls /etc/exports 
+   21  nano /etc/exports 
+   22  apt install nano 
+   23  clear
+   24  nano /etc/exports 
+   25  clear
+   26  cat /etc/exports 
+   27  clear
+   28  service rpcbind status
+   29  service rpcbind staart
+   30  service rpcbind start
+   31  chown -R nobody:nobody /data/nfs/
+   32  chown  nobody:nobody /data/nfs/
+   33  chmod 777  /data/nfs/
+   34  clear
+   35  systemctl status nfs-kernel-server
+   36  systemctl start nfs-kernel-server
+   37  systemctl status nfs-kernel-server
+   38  systemctl status rpcbind
+   39  systemctl startrpcbind
+   40  systemctl start rpcbind
+   41  systemctl startrpcbind
+   42  systemctl status rpcbind
+   43  apt install openrc
+   44  cat /usr/lib/systemd/system/rpcbind.service 
+   45  systemctl status rpcbind
+   46  sudo rm /lib/systemd/system/rpcbind.service
+   47  sudo aptitude reinstall rpcbind
+   48  systemctl status rpcbind
+   49  apt install rpcbind
+   50  systemctl status rpcbind
+   51  systemctl start rpcbind
+   52  systemctl status rpcbind
+   53  ifconfig
+   54  apt install net-tools
+   55  ifconfig
+   56  ufw --version
+   57  apt install ufw
+   58  ufw allow from 192.168.0.13 to any port nfs
+   59  ufw status
+   60  sudo ufw enable
+   61  ufw app list
+   62  ip6tables-restore -h
+   63  ping 192.168.0.13
+   64  apt install iputils-ping
+   65  ping 192.168.0.13
+   66  ufw allow from 192.168.0.0/16 to any port nfs
+   67  ufw app list
+   68  iptables -L
+   69  sudo apt update
+   70  apt install iptables 
+   71  ls /usr/sbin/ip6tables
+   72  lsmod | grep ip6table
+   73  apt install kmod
+   74  lsmod | grep ip6table
+   75  modprobe ip6table_filter
+   76  modprobe
+   77  service ip6tables status
+   78  systemctl status ip6tables
+   79  apt-get install ip6tables
+   80  ip6tables
+   81  modprobe ip6table_filter
+   82  ip6tables --version
+   83  ufw allow from 172.17.0.1 to any port nfs
+   84  ufw allow from 172.18.0.64 to any port nfs
+   85  systemctl status rpcbind
+   86  systemctl status nfs-kernel-server
+   87  ufw allow from 172.17.0.1 to any port nfs
+   88  ip6_tables -L
+   89  iptables -L
+   90  ufw app list
+   91  modprobe -v ip_tables
+   92  modprobe -v ip6_tables
+   93  s
+   94  sudo ufw disable
+   95  nano /etc/exports 
+   96  showmount -e 172.17.0.2
+   97  nano /etc/exports 
+
+
+root@92bf3f458568:/# ufw enable
+ERROR: problem running ufw-init
+ip6tables-restore v1.8.7 (nf_tables): unknown option "--icmpv6-type"
+Error occurred at line: 36
+Try `ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
+
+Problem running '/etc/ufw/before6.rules'
