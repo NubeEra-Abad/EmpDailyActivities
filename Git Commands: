@@ -1,0 +1,28 @@
+# Git Commands:
+git clone (repo link)                         // to clone repository
+git status                                        // to check status of files
+git add (file name)                       // to add new files to repo
+git add *                                         // to add all new files
+git reset head (file name)              // to delete the new file
+
+git commit -m "Description"          // to commit changes
+git push                                        // to push to repo
+git push origin master                  // to push to master
+git branch                                    // to see branches
+git remote -v                           // to locate remote name
+
+git pull origin     // to pull new changes from remote repo
+git config --global user.name  // to specify user name
+git config --global user.email  // to specify user email
+apk add nano                         // add nano editor
+git config --global core.editor "nano"// set nano as editor
+git config --global --edit         // to edit config details
+
+ssh-keygen -t rsa -b 4096 -C "mohammedsharian2040@gmail.com" //create pub key
+ssh-add -l                               // to show list of pub keys
+ssh -T git@github.com          // to test if connect to ssh
+
+git branch -M master             // to specify master
+git remote add origin git@github.com:Mohd404/Courses.get // add origin
+git remote remove origin       // to remove origin
+git push -u origin master  // -u to poll and push automati-
