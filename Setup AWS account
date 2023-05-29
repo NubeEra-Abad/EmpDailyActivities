@@ -1,0 +1,11 @@
+# Setup AWS account:
+Go to the AWS website (https://aws.amazon.com/).
+Click on the "Create an AWS Account" button in the top right corner of the page.
+Fill in your personal information, including your name, email address, and a password.
+Enter your credit card information. You will not be charged unless you use services that are not covered by the free tier.
+Select the AWS support plan that you want to use. The free tier includes basic support.
+Click the "Create Account and Continue" button.
+AWS will then send you a verification code to your email address. Enter this code on the next page.
+Read and accept the AWS Customer Agreement and click on the "Create Account and Continue" button.
+You will be asked to enter additional information about your company, such as your phone number and address.
+You will then be redirected to the AWS Management Console, where you can start using the free tier services.
