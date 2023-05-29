@@ -1,0 +1,19 @@
+Connect Both Servers using Single Key
+-------------------------------------------------
+cat <<EOF >> /etc/hosts
+192.168.0.12 		node2
+EOF
+
+ping node1
+ping node2
+
+apk add ansible-core
+
+mkdir /etc/ansible
+cat <<EOF >> /etc/ansible/hosts
+[ws]
+192.168.0.12		ansible_python_interpreter=/usr/bin/python3
+192.168.0.13		ansible_python_interpreter=/usr/bin/python3
+EOF
+
+ansible all -m ping 
