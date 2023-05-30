@@ -1,28 +1,72 @@
 # Git Commands:
 git clone (repo link)                         // to clone repository
 git status                                        // to check status of files
-git add (file name)                       // to add new files to repo
+git add (file name)                        // to add new files to repo
 git add *                                         // to add all new files
-git reset head (file name)              // to delete the new file
+git rm (file name)                           // to delete files
+git restore (file name)                    // to restore files
 
-git commit -m "Description"          // to commit changes
+git restore --staged (file name)     // to restore from staged
+git clean -n                                   // to show files will be del
+git clean -f                                // to delete files from staged
+
+git reset Head (file name)        // to delete committed file 
+git commit -m "Description"           // to commit changes
 git push                                        // to push to repo
-git push origin master                  // to push to master
-git branch                                    // to see branches
-git remote -v                           // to locate remote name
+git push origin master                // to push to master
+git push origin master --force   // to force push to master
+git push -u origin master        // -u to auto poll and push
 
-git pull origin     // to pull new changes from remote repo
+
+Delete commits:
+git log                                                  // to show commits list
+git reset --hard (commit no.)           // to delete next commits
+git push origin master --force    // to update branch forcefully
+
+Git branch:
+git branch                                     // to see branches
+git branch (branch name)            // to create br
+git branch -d (branch name)        // to safely delete br
+git branch -D (branch name)       // to forcefully delete br
+git branch -m (new br name)       // to rename a br
+git branch -M (new br name)       // to force rename br
+git branch -v                           // to see br list with commit
+git branch -a       // to see brs list in local and remote brs
+
+Git checkout:
+git checkout -b (branch name) // create and move to br
+git checkout (branch name)    // to move to br
+git checkout master                // to move to master
+
+git remote -v                           // to locate remote name
+git pull origin (br name)         // to pull new changes
+
+Git config:
 git config --global user.name  // to specify user name
 git config --global user.email  // to specify user email
-apk add nano                         // add nano editor
 git config --global core.editor "nano"// set nano as editor
 git config --global --edit         // to edit config details
+git config --global alias.st status //create short command
+git config --global alias.br branch // create short br
 
-ssh-keygen -t rsa -b 4096 -C "mohammedsharian2040@gmail.com" //create pub key
+SSH:
+ssh-keygen -t rsa -b 4096 -C "email id" //create pub key
 ssh-add -l                               // to show list of pub keys
-ssh -T git@github.com          // to test if connect to ssh
+ssh -T git@github.com          // to test connection to ssh
+git remote add origin git@github.com:(GitHub username)/(repo name).get      // add origin
+git remote remove origin      // to remove origin
 
-git branch -M master             // to specify master
-git remote add origin git@github.com:Mohd404/Courses.get // add origin
-git remote remove origin       // to remove origin
-git push -u origin master  // -u to poll and push automati-
+git merge (branch name)  // to merge br from another br
+
+Stash:
+git stash                              // to hide files before commit
+git stash pop                      // to show hidden file in stash
+git stash pop stash@{no.}       // to show file no. in stash
+git stash apply        // to show hidden file without remove
+git stash list                            // to show list of stash files 
+git stash save "Description     // to hide file with desc
+git stash drop                         // to delete last file in stash
+git stash drop stash@{no.}     // to delete file no. in stash
+git stash show                       // to show details of last file
+git stash show stash@{no.}  // to show details of file no.
+git stash clear                       // to delete all files in stash 
