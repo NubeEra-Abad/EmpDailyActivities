@@ -254,4 +254,5 @@ You can test the application after see the following output:
 2023-06-04 18:17:20.612  INFO 66796 --- [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-04 18:17:20.612  INFO 66796 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 ```
+![Screenshot from 2023-06-04 18-51-58](https://github.com/NubeEra-Abad/EmpDailyActivities/assets/79145466/af1e0536-88a8-4a23-8799-6de84a96a221)
 ## Display MySql table data is working. Add new data to the table using POST method still work on it. 
