@@ -57,34 +57,56 @@ Add the following dependencies in the `pom.xml` file:
 1. Open a terminal or command prompt.
 2. Connect to the MySQL server using the command line:
 ```
-mysql -u username -p
+mysql -u root -p
 ```
-Replace `username` with your MySQL username. You will be prompted to enter your MySQL password.
-3. Create a new database
+3. Add new user
+The following command will add a new user with username `abc_user` and password `abc123` 
+```
+update user set authentication_string=password('abc123') where user='abc_user';
+```
+4. Flush the privileges to reload the grant tables
+```
+flush privileges;
+```
+5. Exit the MySQL prompt
+```
+exit
+```
+7. Restart MySQL
+```
+sudo systemctl restart mysql
+```
+8. Login again with the new mysql user
+```
+mysql -u abc_user -p
+```
+9. Create a new database and name it `booksdb`
 ```
 CREATE DATABASE booksdb;
 ```
-4. Switch to the newly created database
+10. Switch to the newly created database
 ```
 USE booksdb;
 ```
-5. Create a table called `book` with the desired fields
+11. Create a table called `book` with the desired fields
 ```
 CREATE TABLE book (id INT AUTO_INCREMENT PRIMARY KEY,book_name VARCHAR(50),isbn_number VARCHAR(50));
 ```
-6. Verify that the table was created successfully
+12. Verify that the table was created successfully
 ```
 DESCRIBE book;
 ```
-7. To add data to the table, use the INSERT INTO statement followed by the table name and the column names
+13. To add data to the table, use the INSERT INTO statement followed by the table name and the column names
 ```
 INSERT INTO book (id, book_name, isbn_number) VALUES (1, 'ABC', '12345');
+INSERT INTO book (id, book_name, isbn_number) VALUES (2, 'XYZ', '54321');
+INSERT INTO book (id, book_name, isbn_number) VALUES (3, 'QWE', '56789');
 ```
-8. Confirm that the data has been added to the table by running a `SELECT` query
+14. Confirm that the data has been added to the table by running a `SELECT` query
 ```
 SELECT * FROM book;
 ```
-9. Exit the MySQL prompt
+15. Exit the MySQL prompt
 ```
 exit
 ```
@@ -92,12 +114,13 @@ exit
 Open the `application.properties` file in `src/main/reresources` and add the following configuration:
 ```
 spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mysql://localhost:3306/<your-database-name>?serverTimezone=UTC&useSSL=false&autoReconnect=true
-spring.datasource.username=<your-username>
-spring.datasource.password=<your-password>
+spring.datasource.url=jdbc:mysql://localhost:3306/booksdb?serverTimezone=UTC&useSSL=false&autoReconnect=true
+spring.datasource.username=abs_user
+spring.datasource.password=abc123
 server.port=8082
 connected with MySQL
 ```
+in this configuration the database name is `booksdb`, username is `abc_user`, and the password is `abc123`.
 ## Create java classes
 1. `SampleAccessingOfMysqlApplication.java`
 ```
@@ -218,6 +241,11 @@ public class BookController {
         return bookRepository.findAll();
     }
 }
+```
+## Build and run the application
+Open a terminal and navigate to the root directory of your project (where the `pom.xml` file is located). Run the following command to build and run the Spring Boot application:
+```
+mvn spring-boot:run
 ```
 ## Test the application
 Open a web browser and visit `http://localhost:8082/geek/books` to access the running Spring Boot application. You should see data in `JSON Format` in the browser.
