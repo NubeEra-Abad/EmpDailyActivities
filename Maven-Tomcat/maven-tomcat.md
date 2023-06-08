@@ -24,6 +24,7 @@ start the tomcat server
 cd tomcat/bin
 ./startip
 ```
+Open a web browser and visit `http://<aws-instance-ip>:8080` to access tomcat home page.
 # Tomcat configuration
 We need to edit `context.xml` to access manager gui. Comment the following codes in the following files
 ```
@@ -92,7 +93,7 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=my-webapp -DarchetypeA
     </plugins>
   </build>
 ```
-replace `<Tomcat-server>` with your aws instance public IP address. Open a web browser and visit `http://<aws-instance-ip>:8080` to access tomcat home page. 
+replace `<Tomcat-server>` with your aws instance public IP address.
 ## Edit the maven `settings.xml` file 
 navigate to `/usr/share/maven/conf/` and using `nano` editor open `settings.xml` and add the following codes in `<servers>` section
 ```
