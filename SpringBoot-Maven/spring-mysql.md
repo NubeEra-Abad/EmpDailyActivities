@@ -62,66 +62,72 @@ mysql -u root -p
 3. Add new user
 The following command will add a new user with username `abc_user` and password `abc123` 
 ```
-update user set authentication_string=password('abc123') where user='abc_user';
+CREATE USER 'abc_user'@'localhost' IDENTIFIED BY 'abc123';
 ```
-4. Flush the privileges to reload the grant tables
+4. Grant All the privilege of creating database and tables for the new user on the MySQL server level
 ```
-flush privileges;
+GRANT ALL PRIVILEGES ON *.* TO 'abc_user'@'localhost';
 ```
-5. Exit the MySQL prompt
+5. Flush the privileges to reload the grant tables
+```
+FLUSH PRIVILEGES;
+```
+6. Exit the MySQL prompt
 ```
 exit
 ```
-7. Restart MySQL
+8. Restart MySQL
 ```
 sudo systemctl restart mysql
 ```
-8. Login again with the new mysql user
+9. Login again with the new mysql user
 ```
 mysql -u abc_user -p
 ```
-9. Create a new database and name it `booksdb`
+10. Create a new database and name it `booksdb`
 ```
 CREATE DATABASE booksdb;
 ```
-10. Switch to the newly created database
+11. Switch to the newly created database
 ```
 USE booksdb;
 ```
-11. Create a table called `book` with the desired fields
+12. Create a table called `book` with the desired fields
 ```
 CREATE TABLE book (id INT AUTO_INCREMENT PRIMARY KEY,book_name VARCHAR(50),isbn_number VARCHAR(50));
 ```
-12. Verify that the table was created successfully
+13. Verify that the table was created successfully
 ```
 DESCRIBE book;
 ```
-13. To add data to the table, use the INSERT INTO statement followed by the table name and the column names
+14. To add data to the table, use the INSERT INTO statement followed by the table name and the column names
 ```
 INSERT INTO book (id, book_name, isbn_number) VALUES (1, 'ABC', '12345');
 INSERT INTO book (id, book_name, isbn_number) VALUES (2, 'XYZ', '54321');
 INSERT INTO book (id, book_name, isbn_number) VALUES (3, 'QWE', '56789');
 ```
-14. Confirm that the data has been added to the table by running a `SELECT` query
+15. Confirm that the data has been added to the table by running a `SELECT` query
 ```
 SELECT * FROM book;
 ```
-15. Exit the MySQL prompt
+16. Exit the MySQL prompt
 ```
 exit
 ```
 ## Configure MySQL database connection
-Open the `application.properties` file in `src/main/reresources` and add the following configuration:
+Open the `application.properties` file in `src/main/resources` and add the following configuration.
+if the `resources` directory not exist, create it and create the `application.properties` file
 ```
 spring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mysql://localhost:3306/booksdb?serverTimezone=UTC&useSSL=false&autoReconnect=true
-spring.datasource.username=abs_user
+spring.datasource.username=abc_user
 spring.datasource.password=abc123
 server.port=8082
 connected with MySQL
 ```
 in this configuration the database name is `booksdb`, username is `abc_user`, and the password is `abc123`.
 ## Create java classes
+Before start creating java classes, remove the default java file `App.java` in `src/main/java/com/example/` to avoid overreading of main class.
 1. `SampleAccessingOfMysqlApplication.java`
 ```
 package com.example;
