@@ -92,7 +92,7 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=my-webapp -DarchetypeA
     </plugins>
   </build>
 ```
-replace `<Tomcat-server>` with your aws instance id
+replace `<Tomcat-server>` with your aws instance public IP address. Open a web browser and visit `http://<aws-instance-ip>:8080` to access tomcat home page. 
 ## Edit the maven `settings.xml` file 
 navigate to `/usr/share/maven/conf/` and using `nano` editor open `settings.xml` and add the following codes in `<servers>` section
 ```
@@ -113,5 +113,5 @@ Open a terminal and navigate to the root directory of your project (where the `p
 sudo mvn tomcat7:redeploy
 ```
 ## Test the application
-Open a web browser and visit `http://<aws-instance-id>:8080/webapp` to access the running java application. In this project you should see `Hello World!` in the browser.
+Open a web browser and visit `http://<aws-instance-ip>:8080/webapp` to access the running java application. In this project you should see `Hello World!` in the browser.
 
