@@ -9,11 +9,13 @@ sudo apt install maven
 mvn --version
 ```
 ## installing Tomcat in AWS instance
-for running Tomcat we need to install java-11 as well
+For running Tomcat we need `Ubuntu instance`, opening `port no 8080` in the `Security Group` and install java-11 as well.
 ```
 sudo su -
 apt update
+
 apt install openjdk-11-jdk
+
 cd /opt
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75.tar.gz
 tar -xvzf apache-tomcat-9.0.75.tar.gz
