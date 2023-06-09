@@ -1,0 +1,73 @@
+# EmpDailyActivities
+## Manage Daily Work In Your Branch. 
+#!/bin/bash
+
+# Update system packages
+sudo apt update
+
+# Install Apache
+sudo apt install -y apache2
+
+# Install MySQL
+sudo apt install -y mysql-server
+
+# Secure MySQL installation
+sudo mysql <<EOF
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'AZH123';
+FLUSH PRIVILEGES;
+EOF
+
+# Install PHP and required modules
+sudo apt install -y php libapache2-mod-php php-mysql
+
+# Restart Apache
+sudo systemctl restart apache2
+
+# Download and configure WordPress
+wget -c http://wordpress.org/latest.tar.gz
+tar -xzvf latest.tar.gz
+sudo mv wordpress /var/www/html/wordpress
+sudo chown -R www-data:www-data /var/www/html/wordpress
+sudo chmod -R 755 /var/www/html/wordpress
+
+# Configure MySQL for WordPress
+mysql -u root -pAZH123 <<EOF
+CREATE DATABASE wordpress;
+CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL ON wordpress.* TO 'wordpress'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+EOF
+
+# Configure Apache for WordPress
+sudo tee /etc/apache2/sites-available/wordpress.conf >/dev/null <<EOF
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    DocumentRoot /var/www/html/wordpress
+    ServerName 65.0.76.207
+
+    <Directory /var/www/html/wordpress>
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+EOF
+
+# Enable the new virtual host
+sudo a2ensite wordpress.conf
+
+# Disable the default Apache site
+sudo a2dissite 000-default.conf
+
+# Restart Apache for the changes to take effect
+sudo systemctl restart apache2
+
+# Cleanup
+rm latest.tar.gz
+
+# Done!
+echo "WordPress installation is complete. You can access your site at http://65.0.76.207/wordpress"
