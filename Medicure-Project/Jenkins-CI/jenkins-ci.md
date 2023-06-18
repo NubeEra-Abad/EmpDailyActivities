@@ -102,7 +102,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
       </dependency>
 ```
 
-## Configuration Jenkins
+## Jenkins configuration
 1. Jenkins by default run in port no `8080`, to access jenkins GUI open the following link in browser `http://localhost:8080`.
 2. To login we need to copy the Administrator password, to get the Administrator password use the following command.
 ```
@@ -139,8 +139,8 @@ pipeline {
     }
 }
 ```
-change the `Clone Code` with url `Github` repository
-before build the job change the permission of the `/opt` directory to allow jenkins user to copy the files to tomcat server
+change the `Clone Code` stage with your `Github` url repository.
+Before build the job change the permission of the `/opt` directory to allow jenkins user to copy the files to tomcat server
 ```
 cd /
 sudo chmod 777 -R /opt
