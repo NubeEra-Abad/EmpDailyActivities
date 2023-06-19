@@ -188,7 +188,7 @@ full_crumb=$(curl -u "$user:$password" --cookie-jar "$cookie_jar" $url/crumbIssu
 arr_crumb=(${full_crumb//:/ })
 only_crumb=$(echo ${arr_crumb[1]})
 
-# MAKE THE REQUEST TO DOWNLOAD AND INSTALL REQUIRED MODULES
+#### MAKE THE REQUEST TO DOWNLOAD AND INSTALL REQUIRED MODULES
 curl -X POST -u "$user:$password" $url/pluginManager/installPlugins \
   -H 'Connection: keep-alive' \
   -H 'Accept: application/json, text/javascript, */*; q=0.01' \
