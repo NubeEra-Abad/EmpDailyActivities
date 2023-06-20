@@ -1,18 +1,24 @@
 # Spring Boot - Maven:
 
-# Install Java and Maven:
+## Install Java and Maven:
+```
 sudo apt update
 sudo apt install default-jdk
 java -version
 sudo apt install maven
 mvn -version
--------------------------------------------------------------------------------------
-# Set up Maven project:
+```
+## Set up Maven project:
+```
 mvn archetype:generate -DgroupId=com.example -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-------------------------------------------------------------------------------------
+```
+## Type commands:
+```
 cd /home/x/helloworld
 nano pom.xml
-# Add Spring Boot parent and dependencies:
+```
+## Add Spring Boot parent and dependencies:
+```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-ins>
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -41,11 +47,14 @@ nano pom.xml
     </dependency>
   </dependencies>
 </project>
-------------------------------------------------------------------------------------
+```
+## Type commands:
 From helloworld dir:
+```
 cd src/main/java/com/example
 nano HelloWorldApplication.java 
--------------------
+```
+```
 package com.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -62,10 +71,12 @@ public class HelloWorldApplication {
         return "Hello Mr. Mohd Hassan";
     }
 }
-------------------------------------------------------------------------------------------
-# Build and run the application:
+```
+## Build and run the application:
+```
 mvn spring-boot:run
-------------------------------------------------------------------------------------
-# Test the application:
+```
+## Test the application:
 Open a web browser http://localhost:8080
-Output: Hello Mr. Mohd Hassan
+
+Output: `Hello Mr. Mohd Hassan`
