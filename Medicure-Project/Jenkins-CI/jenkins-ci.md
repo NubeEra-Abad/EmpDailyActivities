@@ -1,6 +1,6 @@
 # Continuous Integration using Jenkins
 
-## Installing tools
+## Installing tools (Manually)
 First we need to install `Jenkins` and `Maven`
 ```
 #!/bin/bash
@@ -123,7 +123,7 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 8. After installing done select `Go back to the top page`.
 
 OR
-### Install Jenkins User
+### Install Jenkins User (Automatically)
 #! /bin/bash
 url=http://localhost:8080
 password=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
