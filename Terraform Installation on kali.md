@@ -1,4 +1,4 @@
-#Terraform Installation on kali:
+# Terraform Installation on kali:
 ```
 sudo apt-get update
 
@@ -23,7 +23,7 @@ sudo apt-get install terraform
 terraform --version
 ```
 
-## To enable tab completion for Terraform commands in bash:
+# To enable tab completion for Terraform commands in bash:
 ```
 touch ~/.bashrc
 terraform -install-autocomplete
