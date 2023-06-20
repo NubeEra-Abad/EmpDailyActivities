@@ -1,6 +1,9 @@
 # github workflow actions (to run codes in github website):
-.github/workflows/welcome.yml		     // creating new file in github
-In workflow:
+```
+.github/workflows/welcome.yml		     
+```
+ # In workflow:
+ ```
 name: displaying message welcome
 on: push
 jobs: 
@@ -15,3 +18,4 @@ jobs:
 	      run: echo “Github is  very powerful tool ”
 	   - name: step4
 	      run: echo “Github is  used to store and process”
+```
