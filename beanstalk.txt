@@ -1,0 +1,71 @@
+    1  apt update && install -y kali-desktop-gnome
+    2  apt install -y kali-desktop-gnome
+    3  apt upgrade -y
+    4  apt update
+    5  service bluetooth start
+    6  nmap 
+    7  nmap localost 
+    8  dig www.google.com 
+    9  apt install -y awscli
+   10  aws configure 
+   11  aws ec2 describe-key-pairs
+   12  git -v
+   13  cd Desktop
+   14  cd 
+   15  ls
+   16  pwd
+   17  cd ..
+   18  ls
+   19  cd home
+   20  ls
+   21  cd mushu
+   22  ls
+   23  cd Desktop
+   24  git clone https://github.com/aws/aws-elastic-beanstalk-cli.git
+   25  ls
+   26  rm *
+   27  ls
+   28  rm -rf  aws-elastic-beanstalk-cli
+   29  ls
+   30  cldear
+   31  clear
+   32  lsd
+   33  ls
+   34  pip3 --version
+   35  pip3 install virtualenv
+   36  clear
+   37  mkdir AWS-BeanStalk
+   38  cd A
+   39  cd AWS-BeanStalk
+   40  clear
+   41  virtualenv .env
+   42  ls
+   43  source .env/bin/activate
+   44  clear
+   45  git clone https://github.com/aws/aws-elastic-beanstalk-cli.git
+   46  ls
+   47  cd aws-elastic-beanstalk-cli
+   48  clear
+   49  pip3 install .
+   50  clear
+   51  eb --version
+   52  clear
+   53  cd ..
+   54  ls
+   55  mkdir Moodle && cd Moodle
+   56  clear
+   57  eb init
+   58  eb -h
+   59  eb deploy --staged
+   60  eb create
+   61  ls
+   62  eb create
+   63  ls
+   64  cd m
+   65  cp moodle-4.2.1.zip /home/mushu/Desktop
+   66  eb health
+   67  eb terminate Moodle-dev
+   68  history
+   69  history > history_commands.txt\n
+   70  ls
+   71  cat history_commands.txt
