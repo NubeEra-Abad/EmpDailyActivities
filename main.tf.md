@@ -61,7 +61,12 @@ resource "aws_instance" "docker_instance" {
   key_name      = "your_key_pair"   # Replace with your key pair name
   security_group_names = [aws_security_group.instance_sg.name]
 
-  provisioner "remote-exec" {
+  tags = {
+    Name = "Docker Instance"
+  }
+}
+
+ provisioner "remote-exec" {
     inline = [
       "sudo apt-get update",
       "sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common",
@@ -72,11 +77,6 @@ resource "aws_instance" "docker_instance" {
       "sudo usermod -aG docker $USER"  
     ]
   }
-
-  tags = {
-    Name = "Docker Instance"
-  }
-}
 ```
 
 ## Create an EC2 instance for `Ansible`
@@ -87,15 +87,15 @@ resource "aws_instance" "ansible_instance" {
   key_name      = "your_key_pair"   # Replace with your key pair name
   security_group_names = [aws_security_group.instance_sg.name]
 
- provisioner "remote-exec" {
+ tags = {
+    Name = "Ansible Instance"
+  }
+}
+
+provisioner "remote-exec" {
     inline = [
       "sudo apt-get update",
       "sudo apt-get install -y software-properties-common",
       "sudo apt-add-repository -y --update ppa:ansible/ansible",
       "sudo apt-get install -y ansible"
-
- tags = {
-    Name = "Ansible Instance"
-  }
-}
 ```
