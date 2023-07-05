@@ -1,11 +1,14 @@
-# Configure the AWS provider
+# Configure the `AWS` provider
+```
 provider "aws" {
   region     = "ap-south-1"
   access_key = "Your_AWS_access_key"
   secret_key = "Your_AWS_secret_key"
 }
+```
 
-# Create security group allowing SSH and HTTP traffic
+## Create security group allowing `SSH` and `HTTP` traffic
+```
 resource "aws_security_group" "instance_sg" {
   name        = "instance_sg"
   description = "Security group for instances"
@@ -24,8 +27,10 @@ resource "aws_security_group" "instance_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+```
 
-# Create an EC2 instance for Jenkins
+## Create an EC2 instance for `Jenkins`
+```
 resource "aws_instance" "jenkins_instance" {
   ami           = "ami-0123456789"  # Replace with the desired Jenkins AMI ID
   instance_type = "t2.micro"        # Replace with the desired instance type
@@ -36,8 +41,10 @@ resource "aws_instance" "jenkins_instance" {
     Name = "Jenkins Instance"
   }
 }
+```
 
-# Create an EC2 instance for Docker
+## Create an EC2 instance for `Docker`
+```
 resource "aws_instance" "docker_instance" {
   ami           = "ami-0123456789"  # Replace with the desired Docker AMI ID
   instance_type = "t2.micro"        # Replace with the desired instance type
@@ -48,8 +55,10 @@ resource "aws_instance" "docker_instance" {
     Name = "Docker Instance"
   }
 }
+```
 
-# Create an EC2 instance for Ansible
+## Create an EC2 instance for `Ansible`
+```
 resource "aws_instance" "ansible_instance" {
   ami           = "ami-0123456789"  # Replace with the desired Ansible AMI ID
   instance_type = "t2.micro"        # Replace with the desired instance type
@@ -60,3 +69,4 @@ resource "aws_instance" "ansible_instance" {
     Name = "Ansible Instance"
   }
 }
+```
