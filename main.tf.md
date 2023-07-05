@@ -40,7 +40,6 @@ resource "aws_instance" "jenkins_instance" {
   tags = {
     Name = "Jenkins Instance"
   }
-}
 
 provisioner "remote-exec" {
     inline = [
@@ -51,6 +50,7 @@ provisioner "remote-exec" {
       "sudo apt-get install jenkins"
     ]
   }
+}
 ```
 
 ## Create an EC2 instance for `Docker`
@@ -64,7 +64,6 @@ resource "aws_instance" "docker_instance" {
   tags = {
     Name = "Docker Instance"
   }
-}
 
  provisioner "remote-exec" {
     inline = [
@@ -77,6 +76,7 @@ resource "aws_instance" "docker_instance" {
       "sudo usermod -aG docker $USER"  
     ]
   }
+}
 ```
 
 ## Create an EC2 instance for `Ansible`
@@ -90,7 +90,7 @@ resource "aws_instance" "ansible_instance" {
  tags = {
     Name = "Ansible Instance"
   }
-}
+
 
 provisioner "remote-exec" {
     inline = [
@@ -98,4 +98,7 @@ provisioner "remote-exec" {
       "sudo apt-get install -y software-properties-common",
       "sudo apt-add-repository -y --update ppa:ansible/ansible",
       "sudo apt-get install -y ansible"
+      ]
+  }
+}
 ```
