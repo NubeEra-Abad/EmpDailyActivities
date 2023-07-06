@@ -42,6 +42,12 @@ resource "aws_instance" "jenkins_instance" {
   }
 
 provisioner "remote-exec" {
+connection {
+      type        = "ssh"
+      user        = "ubuntu"                                   # Replace with the appropriate username for your AMI
+      private_key = file("path to your private key file")            # Replace with the path to your private key file
+      host        = aws_instance.jenkins_instance.public_ip    # Connect using the public IP of the instance
+    }
     inline = [
       "curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \ /usr/share/keyrings/jenkins-keyring.asc > /dev/null",
       "echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \ https://pkg.jenkins.io/debian-stable binary/ | sudo tee \ /etc/apt/sources.list.d/jenkins.list > /dev/null",
@@ -66,6 +72,12 @@ resource "aws_instance" "docker_instance" {
   }
 
  provisioner "remote-exec" {
+connection {
+      type        = "ssh"
+      user        = "ubuntu"                                   # Replace with the appropriate username for your AMI
+      private_key = file("path to your private key file")            # Replace with the path to your private key file
+      host        = aws_instance.docker_instance.public_ip    # Connect using the public IP of the instance
+    }
     inline = [
       "sudo apt-get update",
       "sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common",
@@ -93,6 +105,13 @@ resource "aws_instance" "ansible_instance" {
 
 
 provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"                                   # Replace with the appropriate username for your AMI
+      private_key = file("path to your private key file")            # Replace with the path to your private key file
+      host        = aws_instance.ansible_instance.public_ip    # Connect using the public IP of the instance
+    }
+
     inline = [
       "sudo apt-get update",
       "sudo apt-get install -y software-properties-common",
