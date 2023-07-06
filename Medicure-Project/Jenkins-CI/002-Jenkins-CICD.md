@@ -127,7 +127,8 @@ nano regapp.yml
   - name: push docker image
     command: docker push osamah9/regapp:latest
 ```
-replace `osamah9` with your `DockerHub username` 
+replace `osamah9` with your `DockerHub username`.
+
 6. create `deploy_regapp.yml` without `sudo` and add the following code:
 ```
 ---
@@ -164,3 +165,75 @@ cat id_rsa.pub         // Copy the key
 nano authorized_keys   // In new line paste the key
 ```
 
+## Jenkins plugins
+In Jenkins we need the following plugins:
+1. git
+2. pipeline
+3. pipeline stage view
+4. ssh agent
+5. GitHub Integration for using webhook
+
+## Jenkins setup
+1. First we need to add `ssh Credentials`
+   - Go to `Manager Jenkins` --> `Credentials` --> hover on `Global` and click in the right arrow then `add Credentials`
+   - select kind --> SSH Username with Private key
+   - ID --> ansible_user
+   - Description --> SSH connection with ansible
+   - Username --> ansadmin
+   - Then click on Enter directly
+   - copy the aws instance `key.pem` that you use for connect with the instance and paste it in the field.
+   - apply then save.
+  
+2. create new Job using `Jenkins pipeline` and paste the following code:
+```
+pipeline {
+    agent any
+    stages {
+        stage("Clone Code"){
+            steps{
+                git branch: 'main', url: 'https://github.com/Osamah999/Jenkins-CI.git'
+            }
+        }
+        stage("Build Code"){
+            steps{
+                sh "mvn clean install"
+            }
+        }
+        stage("Pushing Code"){
+            steps{
+                sshagent(['ansible_user']) {
+                    // some block
+                   sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CI-Job/target/Medicure-1.0-SNAPSHOT.war ansadmin@ec2-18-212-60-171.compute-1.amazonaws.com:/home/ansadmin/docker/"
+                }
+            }
+        }
+        stage("Create Docker Image"){
+            steps{
+               sshagent(['ansible_user']) {
+                    // some block
+                   sh "ssh -o StrictHostKeyChecking=no ansadmin@ec2-18-212-60-171.compute-1.amazonaws.com 'ansible-playbook docker/regapp.yml'"
+                }
+            }
+        }
+        stage("Deploy Code"){
+            steps{
+               sshagent(['ansible_user']) {
+                    // some block
+                   sh "ssh -o StrictHostKeyChecking=no ansadmin@ec2-18-212-60-171.compute-1.amazonaws.com 'ansible-playbook docker/deploy_regapp.yml'"
+                }
+            }
+        }
+    }
+}
+```
+replace github url with your url and aws PublickId with your Id but with same username `ansadmin`.
+3. Enable webhook
+   - First you need to enable `GitHub hook trigger for GITScm polling` option in your jenkins job configuration
+   - Then go to your Github repository.
+   - Settings --> WebHooks --> add WebHook.
+   - copy the jenkins url with port no followed by `/github-webhook/` and paste it in the Payload URL.
+   - ex: `http://34.201.108.23:8080/github-webhook/`.
+   - save it.
+   - You should see green sign next to the created webhook which mean the connection is working fine.
+
+4. You can now build the job for execute the pipeline, and accessing the hosting app using the public id-address for ansible and docker instance followed by port no `8082`. 
