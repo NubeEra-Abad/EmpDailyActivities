@@ -1,5 +1,5 @@
 # Installation
-For this job we need for two AWS instance, one for `Jenkins` and `Maven`, and the second instance for `Docker`, `Ansible` and `Tomcat container`.  
+For this job we need for two AWS instance, one for `Jenkins` and `Maven`, and the second instance for `Docker`, `Ansible` and `Tomcat container`.
 For installing `Jenkins` and `Maven` you can follow the instructions in [001-Jenkins-Maven](https://github.com/NubeEra-Abad/EmpDailyActivities/blob/Osamah999/Medicure-Project/Jenkins-CI/001-Jenkins-Maven.md)
 and you need to open port no `8080` in `AWS Security Group`
 
