@@ -49,11 +49,13 @@ connection {
       host        = aws_instance.jenkins_instance.public_ip    # Connect using the public IP of the instance
     }
     inline = [
-      "curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \ /usr/share/keyrings/jenkins-keyring.asc > /dev/null",
-      "echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \ https://pkg.jenkins.io/debian-stable binary/ | sudo tee \ /etc/apt/sources.list.d/jenkins.list > /dev/null",
       "sudo apt-get update",
-      "sudo apt-get install fontconfig openjdk-11-jre",
-      "sudo apt-get install jenkins"
+      "sudo apt install openjdk-11-jdk",
+      "sudo wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null",
+      "sudo echo deb https://pkg.jenkins.io/debian-stable binary/ >> /etc/apt/sources.list.d/jenkins.list echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null",
+      "sudo apt-get update",
+      "sudo apt-get install -y jenkins",
+      "sudo systemctl start Jenkins"
     ]
   }
 }
@@ -79,13 +81,8 @@ connection {
       host        = aws_instance.docker_instance.public_ip    # Connect using the public IP of the instance
     }
     inline = [
-      "sudo apt-get update",
-      "sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common",
-      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg",
-      "echo 'deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable' | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
-      "sudo apt-get update",
-      "sudo apt-get install -y docker-ce docker-ce-cli containerd.io",
-      "sudo usermod -aG docker $USER"  
+      "sudo apt update",
+      "sudo apt install docker.io -y"  
     ]
   }
 }
@@ -114,10 +111,8 @@ provisioner "remote-exec" {
 
     inline = [
       "sudo apt-get update",
-      "sudo apt-get install -y software-properties-common",
-      "sudo apt-add-repository -y --update ppa:ansible/ansible",
       "sudo apt-get install -y ansible"
-      ]
+    ]
   }
 }
 ```
