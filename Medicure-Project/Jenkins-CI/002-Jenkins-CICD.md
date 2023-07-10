@@ -155,8 +155,13 @@ replace `osamah9` with your `DockerHub username`.
      command: docker run -d --name regapp-server -p 8082:8080 osamah9/regapp:latest
 ```
 7. Now we need to copy the `ansadmin ssh publickey` to the `~/ssh/authorized_keys` using `ansadmin user` for giving access to execute ansible.yml files remotelly.
+
+Execute the two following `ssh-copy-id` commands
 ```
 ssh-copy-id localhost
+```
+```
+ssh-copy-id aws-instance-private-id  // replace "aws-instance-private-id" with the actual key
 ```
 Then
 ```
