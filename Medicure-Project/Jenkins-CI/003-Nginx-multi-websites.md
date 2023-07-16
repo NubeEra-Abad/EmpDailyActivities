@@ -54,7 +54,7 @@ sudo mkdir test.com
 3. test.com
 ```
 6. For running the three project with separate `domain name` or `sub-domain name` we need to configure everyone separatly.
-7. Navigate to `/etc/nginx/sites-available/` you will file the `default` file for the Nginx, open it
+7. Navigate to `/etc/nginx/sites-available/` you will see the `default` file for the Nginx, open it
 ```
 sudo nano /etc/nginx/sites-available/default
 ```
@@ -74,7 +74,7 @@ server {
 	}
 }
 ```
-9. let's consider that we have domain name called `domain.com`
+9. let's consider that we have domain name called `osamah.com`
 10. Modify the file to look like this 
 ```
 server {
@@ -84,7 +84,7 @@ server {
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
-        server_name www.domain.com;  // modify here
+        server_name www.osamah.com;  // modify here
 
         location / {
                 try_files $uri $uri/ =404;
@@ -109,7 +109,7 @@ server {
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
-        server_name example.domain.com;  // change www.domain.com to example.domain.com
+        server_name example.osamah.com;  // change www.osamah.com to example.osamah.com
 
         location / {
                 try_files $uri $uri/ =404;
@@ -125,7 +125,7 @@ server {
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
-        server_name test.domain.com;  // change www.domain.com to test.domain.com
+        server_name test.osamah.com;  // change www.osamah.com to test.osamah.com
 
         location / {
                 try_files $uri $uri/ =404;
@@ -153,18 +153,18 @@ sudo systemctl restart nginx
 ```
 ## AWS ACM configuration
 1. In aws go to `ACM` or `AWS Certificate Manager`
-2. I will consider that my domain name is `domain.com`
+2. I will consider that my domain name is `osamah.com`
    - Request certificate --> Request a public certificate --> next
-   - In Fully qualified domain name type your domain name like this `*.domain.com`
+   - In Fully qualified domain name type your domain name like this `*.osamah.com`
    - DNS validation --> RSA 2048
-   - Tag --> Name --> tag value `domain.com` --> request
+   - Tag --> Name --> tag value `osamah.com` --> request
 3. Now for validate that this domain is belong to us we need to copy the `CNAME name` and `CNAME value` for this certificate to domain name provider
 4. Click on the certificate Id and you will see the `CNAME name` and `CNAME value`
 5. Go to your domain name provider website and create new DNS record type `CNAME`
 6. In name field paste the `CNAME name` value without the domain name in the end
 ex:
 ```
-_2cae033805ff34be2fc797245b1dc292.domain.com.  
+_2cae033805ff34be2fc797245b1dc292.osamah.com.  
 ```
 It should paste like this
 ```
@@ -188,5 +188,5 @@ _2cae033805ff34be2fc797245b1dc292.
 5. In the name section type `example` and the value your load balancer `DNS name` 
 6. Create another recode for `test.com` project
 7. name `test` value your load balancer `DNS name`
-8. Now you can use the domain `example.domain.com` to access `example.com` website  
-and `test.domain.com` to access `test.com` website
+8. Now you can use the domain `example.osamah.com` to access `example.com` website  
+and `test.osamah.com` to access `test.com` website
