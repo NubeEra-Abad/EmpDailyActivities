@@ -152,7 +152,27 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 sudo systemctl restart nginx
 ```
 ## AWS ACM configuration
-
+1. In aws go to `ACM` or `AWS Certificate Manager`
+2. I will consider that my domain name is `domain.com`
+   - Request certificate --> Request a public certificate --> next
+   - In Fully qualified domain name type your domain name like this `*.domain.com`
+   - DNS validation --> RSA 2048
+   - Tag --> Name --> tag value `domain.com` --> request
+3. Now for validate that this domain is belong to us we need to copy the `CNAME name` and `CNAME value` for this certificate to domain name provider
+4. Click on the certificate Id and you will see the `CNAME name` and `CNAME value`
+5. Go to your domain name provider website and create new DNS record type `CNAME`
+6. In name field paste the `CNAME name` value without the domain name in the end
+ex:
+```
+_2cae033805ff34be2fc797245b1dc292.domain.com.  
+```
+It should paste like this
+```
+_2cae033805ff34be2fc797245b1dc292.
+```
+7. In value field paste the `CNAME value` value as it is without changes
+8. save the record and go to the AWS ACM and refresh the ACM page.
+9. The validation it will take time to show the certificate status as `issued` so wait it take between 30 minute to 24 hours. 
 ## Load Balancers configuration
 1. First create `Target Group`
    - create target group --> Choose a target type as instance --> give name ex:`nginx-TG` --> next
@@ -164,7 +184,7 @@ sudo systemctl restart nginx
    - In Listener select the protocol `https` and forword to the target group `nginx-TG`
    - Create load balancer
 3. Copy the load balancer `DNS name` and go to your domain name provider
-4. In your domain name provider create new DNS recode with type `CNAME`
+4. In your domain name provider create new DNS record with type `CNAME`
 5. In the name section type `example` and the value your load balancer `DNS name` 
 6. Create another recode for `test.com` project
 7. name `test` value your load balancer `DNS name`
