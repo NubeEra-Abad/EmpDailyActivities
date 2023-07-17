@@ -182,6 +182,7 @@ _2cae033805ff34be2fc797245b1dc292.
    - In `Mappings` select all the existing `subnet`
    - Select Security groups with port no `443` and `80` open
    - In Listener select the protocol `https` and forword to the target group `nginx-TG`
+   - In `Default SSL/TLS certificate` --> `From ACM` --> select SSl certificate, it will show you the certificate that we created in the ACM `*.osamah.com` 
    - Create load balancer
 3. Copy the load balancer `DNS name` and go to your domain name provider
 4. In your domain name provider create new DNS record with type `CNAME`
