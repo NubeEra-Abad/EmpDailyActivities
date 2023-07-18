@@ -49,10 +49,10 @@ Configuration the `IP-address` and the `Domain Name` to in the `settings.py` fil
 ```
 nano ~/volt-project/volt-core/settings.py
 ```
-Edit the `ALLOWED_HOSTS` and add `CSRF_TRUSTED_ORIGINS = ['https://django.osamah.xyz']` after `ALLOWED_HOSTS`
+Edit the `ALLOWED_HOSTS` and add `CSRF_TRUSTED_ORIGINS = ['https://volt.osamah.xyz']` after `ALLOWED_HOSTS`
 ```
-ALLOWED_HOSTS = ['3.83.109.114', 'django.osamah.xyz']
-CSRF_TRUSTED_ORIGINS = ['https://django.osamah.xyz']
+ALLOWED_HOSTS = ['3.83.109.114', 'volt.osamah.xyz']
+CSRF_TRUSTED_ORIGINS = ['https://volt.osamah.xyz']
 ```
 In this project we have `requirements.txt` which contain all requirments to run this project, so to execute this file run this command
 ```
@@ -135,7 +135,7 @@ Paste the below contents inside the file created
 ```
 server {
     listen 80;
-    server_name 3.83.109.114, django.osamah.xyz; // change the IP and Domain Name
+    server_name 3.83.109.114, volt.osamah.xyz; // change the IP and Domain Name
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
