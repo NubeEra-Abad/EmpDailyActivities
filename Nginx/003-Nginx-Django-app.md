@@ -165,3 +165,9 @@ sudo systemctl restart nginx
 Your Django website should now work fine!  
 The only step is remaining is to configure `ACM` and `AWS Load Balancer` which I explain the steps in [001-Nginx-Multi-Websites.md](https://github.com/NubeEra-Abad/EmpDailyActivities/blob/Osamah999/Nginx/001-Nginx-Multi-Websites.md)
 If you want to test the app without domain name, change the port no in `/etc/nginx/sites-available/volt-project` file then restart the Nginx server.
+Remember if you change the configuration in `setting.py` or `nginx files` you need to restart the servers to apply the changes
+```
+sudo systemctl restart gunicorn
+sudo systemctl restart nginx
+```
+## Done
