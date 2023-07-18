@@ -1,4 +1,6 @@
 # How to Configure PHP with NGINX
+
+
 ## Step 1 - Install Nginx and PHP_FPM on Ubuntu
 Nginx doesn’t know how to run a PHP script of its own. It needs a PHP module like PHP-FPM to efficiently manage PHP scripts. PHP-FPM, on the other hand, runs outside the NGINX environment by creating its own process. Therefore when a user requests a PHP page the nginx server will pass the request to PHP-FPM service using FastCGI.
 ```

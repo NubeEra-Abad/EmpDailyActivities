@@ -1,4 +1,6 @@
 # Nginx for hosting multiple website using one IP address and sub-domains
+
+
 ## AWS configuration
 ```
 1. First we need to create ubuntu instance.
