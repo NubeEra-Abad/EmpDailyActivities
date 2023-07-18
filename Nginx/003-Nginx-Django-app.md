@@ -162,4 +162,5 @@ Restart nginx and allow the changes to take place.
 ```
 sudo systemctl restart nginx
 ```
-Your Django website should now work fine!
+Your Django website should now work fine!  
+The only step is remaining is to configure `ACM` and `AWS Load Balancer` which I explain the steps in [001-Nginx-Multi-Websites.md](https://github.com/NubeEra-Abad/EmpDailyActivities/blob/Osamah999/Nginx/001-Nginx-Multi-Websites.md)

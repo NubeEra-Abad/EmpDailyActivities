@@ -1,7 +1,7 @@
 # Nginx for hosting multiple website using one IP address and sub-domains
 
 
-## AWS configuration
+## Step 1 - AWS configuration
 ```
 1. First we need to create ubuntu instance.
 2. Open port no "443" and "80".
@@ -10,7 +10,7 @@
 sudo apt update
 sudo apt install nginx
 ```
-## Nginx configuration
+## Step 2 - Nginx configuration
 1. navigate to `/vat/www/`
 ```
 cd /var/www
@@ -153,7 +153,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 sudo systemctl restart nginx
 ```
-## AWS ACM configuration
+## Step 3 - AWS ACM configuration
 1. In aws go to `ACM` or `AWS Certificate Manager`
 2. I will consider that my domain name is `osamah.com`
    - Request certificate --> Request a public certificate --> next
@@ -175,7 +175,7 @@ _2cae033805ff34be2fc797245b1dc292.
 7. In value field paste the `CNAME value` value as it is without changes
 8. save the record and go to the AWS ACM and refresh the ACM page.
 9. The validation it will take time to show the certificate status as `issued` so wait it take between 30 minute to 24 hours. 
-## Load Balancers configuration
+## Step 4 - Load Balancers configuration
 1. First create `Target Group`
    - create target group --> Choose a target type as instance --> give name ex:`nginx-TG` --> next
    - Select the instance where the nginx server is running --> click on `include as pending below` --> create
