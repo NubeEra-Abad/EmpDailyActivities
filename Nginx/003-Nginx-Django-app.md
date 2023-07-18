@@ -135,7 +135,7 @@ Paste the below contents inside the file created
 ```
 server {
     listen 80;
-    server_name django.osamah.xyz;		// change the domain name
+    server_name 3.83.109.114, django.osamah.xyz; // change the IP and Domain Name
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
@@ -164,3 +164,4 @@ sudo systemctl restart nginx
 ```
 Your Django website should now work fine!  
 The only step is remaining is to configure `ACM` and `AWS Load Balancer` which I explain the steps in [001-Nginx-Multi-Websites.md](https://github.com/NubeEra-Abad/EmpDailyActivities/blob/Osamah999/Nginx/001-Nginx-Multi-Websites.md)
+If you want to test the app without domain name, change the port no in `/etc/nginx/sites-available/volt-project` file then restart the Nginx server.
