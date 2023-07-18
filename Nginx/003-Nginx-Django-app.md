@@ -59,7 +59,7 @@ In this project we have `requirements.txt` which contain all requirments to run 
 pip install -r requirements.txt
 ```
 
-## Step 4 - Set Up Database
+## Step 5 - Set Up Database
 In file the project folder run this commands
 ```
 python manage.py makemigrations
@@ -71,7 +71,7 @@ python manage.py runserver 0.0.0.0:8000
 ```
 Now you can test the application in the browser with instance Public IP and port no `8000`, make sure that port no is open in the securty group
 
-## Step 5 - Configuring gunicorn
+## Step 6 - Configuring gunicorn
 Lets test gunicorn's ability to serve our application by firing the following commands:
 ```
 gunicorn --bind 0.0.0.0:8000 textutils.wsgi
@@ -126,7 +126,7 @@ sudo systemctl start gunicorn.socket
 sudo systemctl enable gunicorn.socket
 ```
 
-## Step 6 - Configuring Nginx as a reverse proxy
+## Step 7 - Configuring Nginx as a reverse proxy
 Create a configuration file for Nginx using the following command
 ```
 sudo nano /etc/nginx/sites-available/volt-project
