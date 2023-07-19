@@ -74,7 +74,7 @@ Now you can test the application in the browser with instance Public IP and port
 ## Step 6 - Configuring gunicorn
 Lets test gunicorn's ability to serve our application by firing the following commands:
 ```
-gunicorn --bind 0.0.0.0:8000 textutils.wsgi
+gunicorn --bind 0.0.0.0:8000 volt-core.wsgi
 ```
 This should start gunicorn on port 8000. We can go back to the browser to test our application. Visiting http://<ip-address>:8000 shows a page like this:  
 Deactivate the virtualenvironment by executing the command below:
