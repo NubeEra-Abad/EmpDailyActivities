@@ -14,8 +14,8 @@ sudo pip3 install virtualenv
 ```
 This will install a virtual environment package in python. Let's create a project directory to host our Django application and create a virtual environment inside that directory. The project directory should in `/var/www/` path.
 ```
-mkdir /var/www/volt-project
-cd /var/www/volt-project
+mkdir /home/ubuntu/volt-project
+cd /home/ubuntu/volt-project
 ```
 ```
 virtualenv env
@@ -39,15 +39,15 @@ This installs Django and gunicorn in our virtual environment
 ## Step 4 - Setting up our Django project
 At this point you can either clone project from GitHub or copy your existing Django project into the `volt-project` folder or create a fresh one as shown below:
 ```
-django-admin startproject volt-core /var/www/volt-project
+django-admin startproject core /home/ubuntu/volt-project
 ```
-In my case I will clone Django project from the GitHub. this clone will create new directory called `django-volt-dashboard` make sure to move all files to the `/var/www/volt-project`
+In my case I will clone Django project from the GitHub. this clone will create new directory called `django-volt-dashboard` make sure to move all files to the `/home/ubuntu/volt-project`
 ```
 git clone https://github.com/app-generator/django-volt-dashboard.git
 ```
 Configuration the `IP-address` and the `Domain Name` to in the `settings.py` file of this project
 ```
-nano /var/www/volt-project/volt-core/settings.py
+nano /home/ubuntu/volt-project/core/settings.py
 ```
 Edit the `ALLOWED_HOSTS` and add `CSRF_TRUSTED_ORIGINS = ['https://volt.osamah.xyz']` after `ALLOWED_HOSTS`
 ```
@@ -74,7 +74,7 @@ Now you can test the application in the browser with instance Public IP and port
 ## Step 6 - Configuring gunicorn
 Lets test gunicorn's ability to serve our application by firing the following commands:
 ```
-gunicorn --bind 0.0.0.0:8000 volt-core.wsgi
+gunicorn --bind 0.0.0.0:8000 core.wsgi
 ```
 This should start gunicorn on port 8000. We can go back to the browser to test our application. Visiting http://<ip-address>:8000 shows a page like this:  
 Deactivate the virtualenvironment by executing the command below:
@@ -110,12 +110,12 @@ After=network.target
 [Service]
 User=ubuntu						// change the user if it's not ubuntu
 Group=www-data
-WorkingDirectory=/var/www/volt-project		// give path to your project location
-ExecStart=/var/www/volt-project/env/bin/gunicorn \	// give path here as well
+WorkingDirectory=/home/ubuntu/volt-project		// give path to your project location
+ExecStart=/home/ubuntu/volt-project/env/bin/gunicorn \	// give path here as well
           --access-logfile - \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
-          volt-core.wsgi:application		// name of the file where setteing.py is exist (volt-core) 
+          core.wsgi:application				// name of the file where setteing.py is exist (volt-core) 
 
 [Install]
 WantedBy=multi-user.target
@@ -139,7 +139,7 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /var/www/volt-project;		// give path
+        root /home/ubuntu/volt-project;		// give path
     }
 
     location / {
